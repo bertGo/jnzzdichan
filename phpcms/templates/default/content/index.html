@@ -52,12 +52,14 @@
 <!-- 内容 -->
 <div class="exhibition_top">
     <div class="ex_top-wrap">
-        {pc:announce  action="lists" siteid="$siteid" num="2"}
             <div class="introduce">
-                <h1>{$data[0]['title']}</h1>
-                <p>{$data[0][content]}</p>
+                {pc:get sql="SELECT new.url ,new.description, new.title FROM v9_news AS new INNER JOIN v9_news_data AS data ON data.id = new.id WHERE new.catid = 32 ORDER BY new.listorder " return="data"}
+                    <a href="{$data[0][url]}">
+                            <h1>{$data[0]['title']}</h1>
+                            <p>{$data[0][description]}</p>
+                    </a>
+                {/pc}
             </div>
-        {/pc}
         <!-- 房源tab -->
         <div class="resources">
             <div class="room">
@@ -366,6 +368,7 @@
       // 如果需要分页器
         pagination: {
             el: '.swiper-pagination',
+            clickable :true,
         },
 	autoplay:true,
 
