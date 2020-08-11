@@ -1,0 +1,234 @@
+{template "content","header"}
+<link rel="stylesheet" href="{CSS_PATH}about.css" />
+
+<style>
+    .crumbs .zhu{
+        background: url("{IMG_PATH}icon2.png") no-repeat 0 32px;
+        padding-left: 23px;
+    }
+    .crumbs a.on {
+        background: url("{IMG_PATH}icon1.png") no-repeat 0 36px;
+    }
+    .grow-up-wrap {
+        position: absolute;
+        width: 100%;
+        height: 400px;
+        left: 0;
+        bottom: 0;
+    }
+
+    .swiper-wrapper {
+        width: 1290px;
+        margin: 0 auto;
+    }
+
+    .swiper-slide {
+        float: left;
+        width: 1290px;
+    }
+
+    .swiper-slide img {
+        /* width: 100%;
+        height: 100%;
+        float: left; */
+    }
+    .swiper-button-next, .swiper-button-prev{
+        color: #FFFFFF!important;
+    }
+</style>
+<!-- 导航 -->
+<div class="banner">
+    <img src="{IMG_PATH}about-banner.png"/>
+</div>
+<div class="infor">
+    <!-- <div class="infor-wrap"> -->
+    <div class="crumbs">
+        <div class="crumbs-wrap">
+            <a href="index.php" class="zhu">中住地产</a>
+            <a class="on">中住介绍</a>
+        </div>
+
+    </div>
+
+    <div class="infor-nav">
+        <ul class="tab-nav tab1">
+            <li id="t_intro" class="hover">中住介绍</li>
+            <li id="t_culture" class="">企业文化 </li>
+            <li id="t_progress" class="">成长历程</li>
+        </ul>
+        <div class="xian" style="left: 0;"></div>
+    </div>
+
+    <div class="tab-box" style="display: block;">
+        <div class="main">
+            <div class="main-wrap">
+                <div class="left">
+                    {pc:content action="lists" catid="$catid" num="1" order="id DESC" page="$page" moreinfo=1}
+                    {loop $data $r}
+                    <div class="introduce">
+                        <h1>{$r[description]}</h1>
+                        {$r[content]}
+                    </div>
+                    {/loop}
+                    {/pc}
+                </div>
+                {template "content","right_img"}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="tab-box none" style="display: none;">
+        <div class="main">
+            <div class="main-wrap">
+                <div class="left">
+                    <div class="corp-culture" id="culture">
+                        <ul id="culture-nav">
+                            <li class="current">企业使命</li>
+                            <li>企业价值观</li>
+                            <li>企业愿景</li>
+                        </ul>
+                        <div id="culture-content">
+                            <div style="display:block;">
+                                <p>成为中国最卓越的不动产综合服务提供商</p>
+                                <img src="image/culture1.png" />
+                            </div>
+                            <div>
+                                <p>
+                                    价值观：利他客户需求至上，团队利益为先，利他才能利己。
+
+                                    合作目标一致、勇于担当、齐心协力、彼此配合。
+
+                                    宽容多用审视的眼光看自己，多用赞赏的心态看别人。
+
+                                    诚信做真事、尊重事实、说真话、信守承诺。
+
+                                    敬业提前规划、有条不紊、效率为先、精益求精、客户为先、及时响应。
+
+                                    感恩常怀感恩之心，常为感恩之行。
+                                </p>
+                            </div>
+                            <div>
+                                <p>
+                                    员工幸福：打造赋能型平台，创造员工精神物质双丰收
+
+                                    客户感动：洞察客户心理与实质需求，提供超期望值服务
+
+                                    行业发展：严守法律法规，以身作则带动行业环境优化
+
+                                    社会和谐：企业发展与社会责任并重，树立和谐发展观
+                                </p>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <div class="right">
+                    <a href="#"><img src="image/about1.png" /></a>
+                    <a href="#"><img src="image/about2.png" /></a>
+                    <a href="#"><img src="image/about3.png" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-box none" style="display: none;">
+        <div class="main">
+            <div class="grow-up">
+                <!-- 成长历程切换 -->
+                <div class="grow-up-wrap">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="image/chzh.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="image/chzh.png" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="image/chzh.png" />
+                            </div>
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="grow-bottom">
+                <div class="grow-bottom-wrap">
+                    <a href="#"><img src="image/qianyue1.png" style="width: 525px;height: 188px;" /></a>
+                    <a href="#"><img src="image/qianyue2.png" style="width: 743px;height: 188px;" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- </div> -->
+</div>
+<!--main-->
+<!--    右上角中住介绍 title 文章标题description 文章内容 content     -->
+<!--{pc:content action="lists" catid="$catid" num="1" order="id DESC" page="$page" moreinfo=1}-->
+<!--<ul class="list lh24 f14">-->
+<!--    {loop $data $r}-->
+<!--    <li><span class="rt">{date('Y-m-d H:i:s',$r[inputtime])}</span>·<a href="{$r[url]}" target="_blank"{title_style($r[style])}>{$r[title]}</a></li>-->
+<!--    {if $n%5==0}<li class="bk20 hr"></li>{/if}-->
+<!--    {/loop}-->
+<!--</ul>-->
+<!--<div id="pages" class="text-c">{$pages}</div>-->
+<!--{/pc}-->
+
+
+<!--<div class="main">-->
+<!--	<div class="col-left">-->
+<!--    	<div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)} 列表</div>-->
+<!--    	{pc:content action="lists" catid="$catid" num="1" order="id DESC" page="$page" moreinfo=1}-->
+<!--        <ul class="list lh24 f14">-->
+<!--{loop $data $r}-->
+<!--	<li><span class="rt">{date('Y-m-d H:i:s',$r[inputtime])}</span>·<a href="{$r[url]}" target="_blank"{title_style($r[style])}>{$r[title]}</a></li>-->
+<!--	{if $n%5==0}<li class="bk20 hr"></li>{/if}-->
+<!--{/loop}-->
+<!--        </ul>-->
+<!--        <div id="pages" class="text-c">{$pages}</div>-->
+<!--{/pc}-->
+<!--  </div>-->
+<!--    <div class="col-auto">-->
+<!--        <div class="box">-->
+<!--            <h5 class="title-2">频道总排行</h5>-->
+<!--             {pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}-->
+<!--            <ul class="content digg">-->
+<!--				{loop $data $r}-->
+<!--					<li><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>-->
+<!--				{/loop}-->
+<!--            </ul>-->
+<!--            {/pc}-->
+<!--        </div>-->
+<!--        <div class="bk10"></div>-->
+<!--        <div class="box">-->
+<!--            <h5 class="title-2">频道本月排行</h5>-->
+<!--             {pc:content action="hits" catid="$catid" num="8" order="monthviews DESC" cache="3600"}-->
+<!--            <ul class="content rank">-->
+<!--				{loop $data $r}-->
+<!--				<li><span>{number_format($r[monthviews])}</span><a href="{$r[url]}"{title_style($r[style])} class="title" title="{$r[title]}">{str_cut($r[title],56,'...')}</a></li>-->
+<!--				{/loop}-->
+<!--            </ul>-->
+<!--            {/pc}-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<script>
+    $(function() {
+        var $li = $('#culture-nav li'); //获取每一个标题和内容用变量存起来
+        var $ul = $('#culture-content div');
+
+        $li.click(function() {
+            var $this = $(this); //用变量把点击的每一个当前的li存起来
+            var $t = $this.index(); // 获取当前li下标
+            $li.removeClass(); //因为默认是第一个显示  所以先移除
+            $this.addClass('current'); //再添加当前的
+            $ul.css('display', 'none'); //因为默认是第一个显示  所以先隐藏
+            $ul.eq($t).css('display', 'block'); //当前内容再出现
+        })
+    });
+</script>
+{template "content","footer"}

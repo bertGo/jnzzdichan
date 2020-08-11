@@ -1,0 +1,125 @@
+.exhibition_top {
+	width: 100%;
+	float: left;
+}
+
+.ex_top-wrap {
+	width: 1295px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 35px 0;
+}
+
+.introduce {
+	float: left;
+	width: 577px;
+	overflow: hidden;
+}
+
+.introduce h1 {
+	color: #505960;
+	font-size: 22px;
+	margin-bottom: 30px;
+}
+
+.introduce p {
+	color: #606363;
+	font-size: 15px;
+}
+
+.resources {
+	float: left;
+	width: 688px;
+	margin-left: 30px;
+}
+
+.room {
+	float: left;
+	width: 100%;
+}
+
+.room .tab-nav {
+	overflow: hidden;
+	border-bottom: 2px solid #878C8C;
+}
+
+.room .tab-nav li {
+	font-weight: bold;
+	cursor: pointer;
+	float: left;
+	display: inline-block;
+	margin: 0px 25px 20px 0;
+	color: #747474;
+	font-size: 13px;
+	width: 55px;
+}
+
+.room .tab-box {
+	margin-top: 30px;
+}
+
+.room .tab-box p {
+	color: #858585;
+	font-size: 13px;
+	line-height: 23px;
+}
+
+.room .tab-box p i {
+	float: left;
+	font-style: normal;
+	margin-right: 13px;
+}
+
+.xian {
+	height: 2px;
+	width: 55px;
+	background: #c7000b;
+	position: relative;
+	left: 0px;
+	margin-top: -2px;
+}
+
+.none {
+	display: none;
+}
+.house{
+	width: 100%;
+	float: left;
+}
+.house li{
+	float: left;
+	width: 33.3%;
+}
+	
+.house li img{
+	width: 94px;
+	height: 69px;
+	float: left;
+}
+.house .infor{
+	float: left;
+	margin-left: 8px;
+}
+.house .infor p{
+	color: #606363;
+}
+.house .infor p span{
+	font-size: 9px;
+}
+.exhibition_bottom{
+	width: 100%;
+	height: 190px;
+	float: left;
+	background: #e0e2e4;
+}
+.ex_b-wrap{
+	width: 1295px;
+	height: 190px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.ex_b-wrap img{
+	height: 190px;
+	float: left;
+	display: block;
+}

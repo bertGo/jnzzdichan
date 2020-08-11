@@ -1,0 +1,70 @@
+/*导航栏*/
+.header-zz{
+    display: flex;
+    width: 100%;
+    height: 0.8rem;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    font-weight: 580;
+    font-size: 0.15rem;
+}
+.nav-img-zz{
+    flex: 1;
+    background: #eeeeee;
+}
+.nav-bar-zz{
+    flex: 2;
+    display: flex;
+    align-items: center;
+}
+.nav-bar-zz>a{
+    height: 0.8rem;
+    text-align: center;
+    line-height: 0.8rem;
+    padding: 0 0.2rem;
+    text-decoration:none;
+}
+/*导航栏选中样式*/
+.select{
+    background-color: #28B7BC;
+    color: white;
+}
+/*footer */
+.footer-main{
+    position: absolute;
+    /*right: 0.5rem;*/
+    right: 0;
+}
+.footer{
+    width: 14rem;
+    position: relative;
+}
+.footer-solid{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 100%;
+    border-top: 1px solid #dbe7ed
+}
+.footer-url{
+    width: 13rem;
+    margin: 20px auto 0 auto;
+    font-weight: 600;
+}
+.footer-url span{
+    margin-left: 0.1rem;
+}
+.footer-url a{
+    margin-left: 0.1rem;
+}
+.swiper-style{
+    width: 100%;
+    height: 400px;
+    margin-top: 0.8rem;
+}
+.swiper-img{
+    width: 100%;
+    height: 100%;
+}

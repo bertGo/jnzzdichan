@@ -1,0 +1,196 @@
+{template "content","header"}
+
+<link rel="stylesheet" href="{CSS_PATH}style.css" />
+<link rel="stylesheet" href="{CSS_PATH}news.css" />
+<body>
+<style>
+    .crumbs .zhu{
+        background: url("{IMG_PATH}icon2.png") no-repeat 0 32px;
+        padding-left: 23px;
+    }
+    .crumbs a.on {
+        background: url("{IMG_PATH}icon1.png") no-repeat 0 36px;
+    }
+</style>
+<!-- 导航 -->
+<div class="banner">
+    <img src="{IMG_PATH}about-banner.png"/>
+</div>
+<div class="infor">
+    <!-- <div class="infor-wrap"> -->
+    <!-- 如果修改了新闻中心，将catid改成新闻中心对应的id todo-->
+    {pc:content action="category" catid="31" num="25" }
+    {php $catnum=0}
+    {loop $data $r}
+    {if $catnum==0}
+    <div class="crumbs">
+        <div class="crumbs-wrap">
+	    <a href="{WEB_PATH}" class="zhu">中住地产</a>
+		<a class="on">{$r[catname]}</a>
+        </div>
+    </div>
+    {/if}
+    {$catnum++}
+    {/loop}
+    {/pc}
+    <div class="infor-nav">
+        <ul class="tab-nav tab1">
+            {php $i=0}
+            {loop subcat($catid) $r}
+            <li {if $i==0} class="hover" {/if} ><a href="{$r[url]}" title="{$r[catname]}">{$r[catname]}</a></li>
+            {$i++}
+            {/loop}
+        </ul>
+        <!--        {pc:content  action="lists" catid="$list_id"  num="15"}-->
+        <!--                <p>{print_r($list_id)}</p>-->
+        <!--                <p>{print_r($data)}</p>-->
+        <!--        {/pc}-->
+        <div class="xian" style="left: 0;"></div>
+    </div>
+    <div class="tab-box" style="display: block;">
+        <div class="main">
+            <div class="main-wrap">
+                {php $i=0}
+                {loop subcat($catid) $r}
+                {php $count_page=ceil(count($r)/10)}
+                {if $i==0}
+                {pc:content  action="lists" catid="$r[catid]"  num="10" page='1'}
+                <div class="left">
+                    {php $j=0}
+                    {loop $data $content}
+                    {if $j==0}
+                    <div class="news-top">
+                        <div class="news-top-l">
+                            <a href="{$content[url]}">
+                                <div class="date">{date('M m,Y',$content[updatetime])}</div>
+                                <h1>{$content[title]}</h1>
+                                <p>{$content[description]}
+                                </p>
+                                <button>更多信息></button>
+                            </a>
+                        </div>
+                        <div class="news-top-r">
+                            <a href="{$content[url]}"><img src="{$content[thumb]}" /></a>
+                        </div>
+                    </div>
+                    {else}
+                    {if $j==1}
+                    <ul class="news-list">
+                        {/if}
+                        <li class="introduce">
+                            <a href="{$content[url]}">
+                                <div class="date">
+                                    <h1>{date('j',$content[updatetime])}</h1>
+                                    <p>{date('M Y',$content[updatetime])}</p>
+                                </div>
+                                <div class="introduce-infor">
+                                    <h1>{$content[title]}</h1>
+                                    <p>{$content[description]}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    {/if}
+                    {$j++}
+                    {/loop}
+                    </ul>
+                    <div id="page" class="page_div">{$pages}</div>
+                </div>
+                {/pc}
+                {/if}
+                {$i++}
+                {/loop}
+                {template "content","right_img"}
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- </div> -->
+</div>
+
+</body>
+<script src="{JS_PATH}jquery-1.min.js"></script>
+<script src="{JS_PATH}nav.js"></script>
+<script src="{JS_PATH}paging.js"></script>
+
+<script>
+
+</script>
+
+
+<!--<div class="main">-->
+<!--	&lt;!&ndash;left_bar&ndash;&gt;-->
+<!--	<div class="col-left">-->
+<!--    <div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> &gt; </span>{catpos($catid)}</div>-->
+<!--    &lt;!&ndash;广告698x90&ndash;&gt;-->
+<!--    <div class="brd mg_b10 ad698"><script language="javascript" src="{APP_PATH}caches/poster_js/8.js"></script></div>-->
+<!--    	&lt;!&ndash;最新下载&ndash;&gt;-->
+<!--    <div class="box mg_b10">-->
+<!--        		<h5>最新下载</h5>-->
+<!--            <ul class="content news-photo col4 picbig">-->
+<!--            {pc:content action="lists" catid="$catid" num="8"  thumb="1" order="id DESC" page="$page"}-->
+<!--			{loop $data $r}-->
+<!--            	<li>-->
+<!--                    <div class="img-wrap"><a href="{$r[url]}#"><img src="{$r[thumb]}"></a></div><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],24,'')}</a>-->
+<!--                </li>-->
+<!--            {/loop}-->
+<!--			{/pc}-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        {loop subcat($catid,0) $r}-->
+<!--        {php $num++}-->
+<!--        <div {if $num%2!=0}style="margin-right: 10px;"{/if} class="box cat-area">-->
+<!--        		<h5 class="title-1">{$r[catname]}<a class="more" href="{$r[url]}">更多&gt;&gt;</a></h5>-->
+<!--             <div class="content">-->
+<!--                <ul class="list lh24 f14">-->
+<!--                {pc:content action="lists" catid="$r[catid]" num="10"  order="id DESC" return="info"}-->
+<!--             	{loop $info $v}-->
+<!--                	<li><span class="rt">{date('m-d',$v['inputtime'])}</span>·<a target="_blank" href="{$v['url']}" title="{$v['title']}">{str_cut($v['title'],38)}</a></li>-->
+<!--              {/loop}-->
+<!--              {/pc}-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        {if $num%2==0}<div class="bk10"></div>{/if}-->
+<!-- 		{/loop}-->
+<!--		 {/pc}-->
+<!--    </div>-->
+<!--    &lt;!&ndash;right_bar&ndash;&gt;-->
+<!--    <div class="col-auto">-->
+<!--        <div class="box">-->
+<!--            <h5 class="title-2">下载分类</h5>-->
+<!--            <ul class="content col3 h28">-->
+<!--            	{loop subcat($catid) $r}-->
+<!--            	<li><a href="{$r[url]}" title="{$r[catname]}">{$r[catname]}</a></li>-->
+<!--            	{/loop}-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div class="bk10"></div>-->
+<!--        <div class="box">-->
+<!--            <h5 class="title-2">下载排行</h5>-->
+<!--            <ul class="content digg">-->
+<!--			{pc:content action="hits" catid="$catid" num="10" order="views DESC" cache="3600"}-->
+<!--				{loop $data $r}-->
+<!--					<li><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>-->
+<!--				{/loop}-->
+<!--			{/pc}-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div class="bk10"></div>-->
+<!--        <div class="box">-->
+<!--            <h5 class="title-2">推荐下载</h5>-->
+<!--            <ul class="content digg">-->
+<!--            	{pc:content  action="position" posid="5" order="listorder DESC" num="4"}-->
+<!--        	 	{loop $data $r}-->
+<!--                <li><a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title],34)}</a></li>-->
+<!--               	{/loop}-->
+<!--             	{/pc}-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+{template "content","footer"}

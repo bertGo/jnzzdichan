@@ -1,0 +1,14 @@
+
+<!--todo 如果修改了新闻中心，将catid改成新闻中心对应的id -->
+ {pc:content action="category" catid="31" num="25" }
+{loop $data $r}
+{if $r['catid']==$catid}
+    <div class="crumbs">
+        <div class="crumbs-wrap">
+            <a href="{WEB_PATH}" class="zhu">中住地产</a>
+            <a class="on">{$r[catname]}</a>
+        </div>
+    </div>
+{/if}
+{/loop}
+{/pc}

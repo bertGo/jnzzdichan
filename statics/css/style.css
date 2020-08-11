@@ -1,0 +1,276 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+textarea,
+input {
+	margin: 0;
+	padding: 0;
+}
+
+address,
+cite,
+dfn,
+em,
+var,
+i {
+	font-style: normal;
+}
+
+body {
+	font-size: 16px;
+	line-height: 1.5;
+	font-family: 'Microsoft Yahei', 'simsun', 'arial', 'tahoma';
+	color: #222;
+	background: #eee;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+button,
+input,
+select,
+textarea {
+	font-size: 100%;
+}
+
+fieldset,
+img {
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #666;
+	background: none
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+
+:focus {
+	outline: none;
+}
+
+.clearfix {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+.clear {
+	clear: both;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+body {
+	max-width: 1680px;
+	min-width: 1130px;
+	margin: 0 auto;
+	background: #fff;
+}
+
+.header {
+	float: left;
+	width: 100%;
+	position: relative;
+}
+
+.header-wrap {
+	width: 100%;
+	height: 90px;
+	overflow: hidden;
+}
+
+.logo {
+	position: absolute;
+	top: 28px;
+	left: 313px;
+	width: 115px;
+	height: 34px;
+	background: url(../image/log.png) no-repeat 0 0;
+}
+
+.menu {
+	float: left;
+	position: absolute;
+	width: 1016px;
+	margin-left: 665px;
+	z-index: 4;
+	height: 180px;
+	overflow: hidden;
+}
+
+.menu .nav {
+	height: 90px;
+	margin: 0 auto;
+}
+
+.menu .nav li {
+	float: left;
+	font-size: 17px;
+}
+
+.menu .nav li a {
+	float: left;
+	display: block;
+	height: 90px;
+	padding: 0 30px;
+	line-height: 90px;
+	color: gray;
+	text-decoration: none;
+	position: relative;
+	overflow: hidden;
+}
+
+.menu .nav li a:hover,
+.menu .nav li a.current {
+	background: #26b7bc;
+	color: #fff;
+}
+
+.menu .nav li .box {
+	z-index: 9;
+	padding-left: 128px;
+	width: 100%;
+	height: 60px;
+	position: absolute;
+	top: 90px;
+	background: #656969;
+	display: none;
+}
+
+.menu .nav li .box a {
+	display: block;
+	height: 60px;
+	float: left;
+	color: #fff;
+	line-height: 60px;
+	border: none;
+	background: none;
+	padding: 0;
+	width: 100px;
+	text-align: center;
+}
+
+.menu .nav li .box a:hover {
+	text-decoration: none;
+	color: #26b7bc
+}
+
+/* 底部 */
+.bottom {
+	width: 100%;
+	height: 190px;
+	float: left;
+}
+
+.objective {
+	width: 100%;
+	float: left;
+	font-size: 15px;
+	color: #505960;
+	padding: 28px 0;
+	border-bottom: 2px solid #ababab;
+}
+
+.objective-wrap {
+	width: 1295px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.copyright {
+	width: 100%;
+	padding: 28px 0;
+	float: left;
+	text-align: right;
+}
+
+.copyright-wrap {
+	width: 1295px;
+	margin: 0 auto;
+	overflow: hidden;
+}
