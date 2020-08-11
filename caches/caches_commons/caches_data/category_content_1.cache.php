@@ -16,7 +16,7 @@ return array (
     'description' => '',
     'parentdir' => '',
     'catdir' => 'about',
-    'url' => 'http://zhongzhu.dev.jnhouse.com/html/about/',
+    'url' => 'http://www.zhongzhudichan.com/html/about/',
     'items' => '0',
     'hits' => '0',
     'setting' => 'array (
@@ -59,7 +59,7 @@ return array (
     'description' => '',
     'parentdir' => 'about/',
     'catdir' => 'aboutus',
-    'url' => 'http://zhongzhu.dev.jnhouse.com/html/about/aboutus/',
+    'url' => 'http://www.zhongzhudichan.com/html/about/aboutus/',
     'items' => '0',
     'hits' => '0',
     'setting' => 'array (
@@ -135,7 +135,7 @@ return array (
     'description' => '',
     'parentdir' => 'about/',
     'catdir' => 'contactus',
-    'url' => 'http://zhongzhu.dev.jnhouse.com/html/about/contactus/',
+    'url' => 'http://www.zhongzhudichan.com/html/about/contactus/',
     'items' => '0',
     'hits' => '0',
     'setting' => 'array (
@@ -254,7 +254,7 @@ return array (
     'description' => '',
     'parentdir' => 'about/',
     'catdir' => 'hr',
-    'url' => 'http://zhongzhu.dev.jnhouse.com/html/about/hr/',
+    'url' => 'http://www.zhongzhudichan.com/html/about/hr/',
     'items' => '0',
     'hits' => '0',
     'setting' => 'array (
