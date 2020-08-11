@@ -72,7 +72,7 @@
         <div class="xian" style="left: 0;"></div>
     </div>
 
-    <div class="tab-box" style="display: block;">
+    <div class="tab-box" >
         <div class="main">
             <div class="main-wrap">
                 <div class="left">
@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <div class="tab-box none" style="display: none;">
+    <div class="tab-box none">
         <div class="main">
             <div class="main-wrap">
                 <div class="left">
@@ -150,7 +150,7 @@
             </div>
         </div>
     </div>
-    <div class="tab-box none" style="display: none;">
+    <div class="tab-box none">
         <div class="main">
             <div class="grow-up">
                 <!-- 成长历程切换 -->
@@ -319,39 +319,54 @@
 <script>
     //房源选项卡
     $(document).ready(function() {
+    /*
+        切换二级导航下划线
+    */
+        function sec_nav(index) {
+            if (index == 0) {
+                $('.xian').animate({
+                    left: '0px'
+                });
+            } else if (index == 1) {
+                {
+                    $('.xian').animate({
+                        left: '80px'
+                    });
+                }
+            } else if (index == 2) {
+                {
+                    $('.xian').animate({
+                        left: '160px'
+                    });
+                }
+            } else if (index == 3) {
+                {
+                    $('.xian').animate({
+                        left: '240px'
+                    });
+                }
+            }
+        }
+        //点进来时判断显示哪一个
+        /*
+        0 中住介绍
+        1 企业文化
+        2 成长历程
+         */
+        let index=getUrlParam('index');
+        $ul=$(".tab-box");
+        $ul.css('display', 'none'); //因为默认是第一个显示  所以先隐藏
+        $ul.eq(index).css('display', 'block'); //当前内容再出现
+        sec_nav(index);
         function tab(i) {
             $(i).children().click(function() { //触发方式//click//mouseover
                 $(this).siblings().removeClass();
                 $(this).addClass('hover');
                 $(this).parent().parent().siblings('.tab-box').hide();
                 $(this).parent().parent().siblings('.tab-box').eq($(this).index()).show();
-                console.log('index:'+$(this).index());
-                if ($(this).index() == 0) {
-                    $('.xian').animate({
-                        left: '0px'
-                    });
-                } else if ($(this).index() == 1) {
-                    {
-                        $('.xian').animate({
-                            left: '80px'
-                        });
-                    }
-                } else if ($(this).index() == 2) {
-                    {
-                        $('.xian').animate({
-                            left: '160px'
-                        });
-                    }
-                } else if ($(this).index() == 3) {
-                    {
-                        $('.xian').animate({
-                            left: '240px'
-                        });
-                    }
-                }
+                sec_nav($(this).index());
             })
         }
-
         //tab调用
         $(function() {
             tab('.tab1')
