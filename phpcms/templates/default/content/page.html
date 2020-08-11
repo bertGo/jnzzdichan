@@ -95,6 +95,7 @@
         // È¹û·Ö³Æ
         pagination: {
             el: '.swiper-pagination',
+            clickable :true,
         },
     })
 </script>
@@ -202,12 +203,13 @@
 <div class="banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="{IMG_PATH}j-banner1.png" />
-            </div>
-            <div class="swiper-slide">
-                <img src="{IMG_PATH}j-banner2.png" />
-            </div>
+            {pc:content  action="lists" catid="37" num="5"}
+                {loop $data $r}
+                <div class="swiper-slide">
+                    <img src="{$r['thumb']}" />
+                </div>
+                {/loop}
+            {/pc}
         </div>
         <div class="swiper-pagination"></div>
     </div>
@@ -292,6 +294,7 @@
         // 如果需要分页器
         pagination: {
             el: '.swiper-pagination',
+            clickable :true,
         },
     })
 </script>
@@ -361,6 +364,7 @@ $(".join-r li").click(function () {
 {else}
 
 {template "content","header"}
+<!--联系我们-->
 <head>
     <meta charset="utf-8">
     <title></title>
@@ -480,6 +484,7 @@ $(".join-r li").click(function () {
         // 如果需要分页器
         pagination: {
             el: '.swiper-pagination',
+            clickable :true,
         },
     })
 </script>

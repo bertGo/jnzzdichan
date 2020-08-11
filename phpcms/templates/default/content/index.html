@@ -52,12 +52,14 @@
 <!-- 内容 -->
 <div class="exhibition_top">
     <div class="ex_top-wrap">
-        {pc:announce  action="lists" siteid="$siteid" num="2"}
             <div class="introduce">
-                <h1>{$data[0]['title']}</h1>
-                <p>{$data[0][content]}</p>
+                {pc:get sql="SELECT new.url ,new.description, new.title FROM v9_news AS new INNER JOIN v9_news_data AS data ON data.id = new.id WHERE new.catid = 32 ORDER BY new.listorder " return="data"}
+                    <a href="{$data[0][url]}">
+                            <h1>{$data[0]['title']}</h1>
+                            <p>{$data[0][description]}</p>
+                    </a>
+                {/pc}
             </div>
-        {/pc}
         <!-- 房源tab -->
         <div class="resources">
             <div class="room">
@@ -105,9 +107,9 @@
 <!--todo-->
 <div class="exhibition_bottom">
     <div class="ex_b-wrap">
-        {pc:content  action="lists" catid="22"   num="3"}
+        {pc:get sql="SELECT pic.thumb,pic_data.content FROM v9_picture AS pic INNER JOIN v9_picture_data AS pic_data ON pic.id = pic_data.id WHERE pic.catid = 22 ORDER BY pic.listorder" return="data"}
         {loop $data $r}
-        <img src="{thumb($r[thumb],400,190)}" />
+        <a href="{$r[content]}"><img src="{thumb($r[thumb],400,190)}"/></a>
         {/loop}
         {/pc}
     </div>
@@ -366,6 +368,7 @@
       // 如果需要分页器
         pagination: {
             el: '.swiper-pagination',
+            clickable :true,
         },
 	autoplay:true,
 

@@ -16,7 +16,6 @@ function  init()
     {
         rem=65;
     }
-    console.log(rem);
     $('html').css('font-size', rem + "px");
 }
 //设置导航栏选中样式
@@ -24,7 +23,6 @@ function set_index_bg(catid) {
     if(catid!==null)
     {
         $(".item-cat").map(function () {
-            console.log($(this));
             if($(this).attr("data-cat")==catid)
             {
                 $(this).addClass('select');

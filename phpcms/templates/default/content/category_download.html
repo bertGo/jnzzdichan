@@ -94,7 +94,7 @@
                     {$j++}
                     {/loop}
                     </ul>
-                    <div id="page" class="page_div">{$pages}</div>
+                    <div id="page" class="page_div" {if empty($pages)} style="visibility: hidden;" {/if}>{$pages}</div>
                 </div>
                 {/pc}
                 {/if}
