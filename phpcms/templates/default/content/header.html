@@ -59,9 +59,9 @@
 					<a href="{$r[url]}"  data-cat="{$r[catid]}" >{$r[catname]}</a>
 					<div class="box">
 						{pc:content action="category" catid="$r[catid]" num="25" siteid="$siteid" order="listorder ASC" return="item"}
-						{loop $item $val}
-						<a href="{$val[url]}">{$val[catname]}</a>
-						{/loop}
+							{loop $item $val}
+							<a href="{$val[url]}">{$val[catname]}</a>
+							{/loop}
 						{/pc}
 					</div>
 					{/if}
