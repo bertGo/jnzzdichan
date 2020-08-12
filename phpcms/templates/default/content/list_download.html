@@ -75,7 +75,7 @@
                         {/loop}
                     </ul>
 
-                    <div id="page" class="page_div">{$pages}</div>
+                    <div id="page" {if empty($pages)} style="visibility: hidden;" {/if} class="page_div">{$pages}</div>
                 </div>
                 {/pc}
                 {template "content","right_img"}
