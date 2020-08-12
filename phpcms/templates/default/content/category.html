@@ -275,15 +275,22 @@
             <div class="main-wrap">
                 <div class="left">
                     <div class="corp-culture" id="culture">
-                        <div style="display:block;">
-                            <img src="{IMG_PATH}shiming.png" />
-                        </div>
-                        <div>
-                            <img src="{IMG_PATH}jiazhi.png" />
-                        </div>
-                        <div>
-                            <p>成为中国最卓越的不动产综合服务提供商</p>
-                            <img src="{IMG_PATH}culture1.png" />
+                        <ul id="culture-nav">
+                            <li class="current">企业使命</li>
+                            <li>企业价值观</li>
+                            <li>企业愿景</li>
+                        </ul>
+                        <div id="culture-content">
+                            <div style="display:block;">
+                                <img src="{IMG_PATH}shiming.png" />
+                            </div>
+                            <div>
+                                <img src="{IMG_PATH}jiazhi.png" />
+                            </div>
+                            <div>
+                                <p>成为中国最卓越的不动产综合服务提供商</p>
+                                <img src="{IMG_PATH}culture1.png" />
+                            </div>
                         </div>
 <!--                        <ul id="culture-nav">-->
 <!--                            {pc:content action="lists" catid="13" num="3" order="id DESC" page="$page" moreinfo=1}-->
@@ -295,18 +302,18 @@
 <!--                            {/pc}-->
 <!--                        </ul>-->
 
-                        <div id="culture-content">
-                            {pc:content action="lists" catid="13" num="3" order="id DESC" page="$page" moreinfo=1}
-                            {php $n=1}
-                            {loop $data $r}
-                            <div {if $n==1}style="display:block;{/if}">
-                                <p>{$r[content]}</p>
-                                <img src="{$r[thumb]}" />
-                            </div>
-                            {php $n++}
-                            {/loop}
-                            {/pc}
-                        </div>
+<!--                        <div id="culture-content">-->
+<!--                            {pc:content action="lists" catid="13" num="3" order="id DESC" page="$page" moreinfo=1}-->
+<!--                            {php $n=1}-->
+<!--                            {loop $data $r}-->
+<!--                            <div {if $n==1}style="display:block;{/if}">-->
+<!--                                <p>{$r[content]}</p>-->
+<!--                                <img src="{$r[thumb]}" />-->
+<!--                            </div>-->
+<!--                            {php $n++}-->
+<!--                            {/loop}-->
+<!--                            {/pc}-->
+<!--                        </div>-->
                         <div style="clear: both;"></div>
                     </div>
                 </div>
