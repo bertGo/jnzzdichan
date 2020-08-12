@@ -109,7 +109,7 @@
     <div class="ex_b-wrap">
         {pc:get sql="SELECT pic.thumb,pic_data.content FROM v9_picture AS pic INNER JOIN v9_picture_data AS pic_data ON pic.id = pic_data.id WHERE pic.catid = 22 ORDER BY pic.listorder" return="data"}
         {loop $data $r}
-        <a href="{$r[content]}"><img src="{thumb($r[thumb],400,190)}"/></a>
+        <a href="{$r[content]}" target="_blank"><img src="{thumb($r[thumb],400,190)}"/></a>
         {/loop}
         {/pc}
     </div>
