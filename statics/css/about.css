@@ -41,8 +41,12 @@
 
 .infor-nav {
 	position: absolute;
-	right: 313px;
+	right: 0px;
 }
+.infor .tab-nav .hover {
+	border-bottom: 2px solid #c7000b;
+}
+
 
 .infor .tab-nav {
 	overflow: hidden;
@@ -52,7 +56,7 @@
 	font-weight: bold;
 	cursor: pointer;
 	float: left;
-	line-height: 77px;
+	line-height: 75px;
 	display: inline-block;
 	margin: 0px 25px 0 0;
 	color: #505960;
