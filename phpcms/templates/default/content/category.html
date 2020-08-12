@@ -254,40 +254,40 @@
     <div class="tab-box" >
         <div class="main">
             <div class="main-wrap">
-                <div class="left">
-                    <div class="corp-culture" id="culture">
-                        <ul id="culture-nav">
-                            <li class="current">企业使命</li>
-                            <li>企业价值观</li>
-                            <li>企业愿景</li>
-                        </ul>
-                        <div id="culture-content">
-                            <div style="display:block;">
-                                <img src="{IMG_PATH}shiming.png" />
-                            </div>
-                            <div>
-                                <img src="{IMG_PATH}jiazhi.png" />
-                            </div>
-                            <div>
-                                <p>成为中国最卓越的不动产综合服务提供商</p>
-                                <img src="{IMG_PATH}culture1.png" />
+<!--                <div class="left">-->
+<!--                    <div class="corp-culture" id="culture">-->
+<!--                        <ul id="culture-nav">-->
+<!--                            <li class="current">企业使命</li>-->
+<!--                            <li>企业价值观</li>-->
+<!--                            <li>企业愿景</li>-->
+<!--                        </ul>-->
+<!--                        <div id="culture-content">-->
+<!--                            <div style="display:block;">-->
+<!--                                <img src="{IMG_PATH}shiming.png" />-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <img src="{IMG_PATH}jiazhi.png" />-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <p>成为中国最卓越的不动产综合服务提供商</p>-->
+<!--                                <img src="{IMG_PATH}culture1.png" />-->
 
-                            </div>
-                        </div>
-                        <div style="clear: both;"></div>
-                    </div>
-                </div>
-
-                <!--                <div class="left">-->
-<!--                    {pc:content action="lists" catid="15" num="1" order="id DESC" page="$page" moreinfo=1}-->
-<!--                    {loop $data $r}-->
-<!--                    <div class="introduce">-->
-<!--                        <h1>{$r[description]}</h1>-->
-<!--                        {$r[content]}-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div style="clear: both;"></div>-->
 <!--                    </div>-->
-<!--                    {/loop}-->
-<!--                    {/pc}-->
 <!--                </div>-->
+
+                <div class="left">
+                    {pc:content action="lists" catid="15" num="1" order="id DESC" page="$page" moreinfo=1}
+                    {loop $data $r}
+                    <div class="introduce">
+                        <h1>{$r[description]}</h1>
+                        {$r[content]}
+                    </div>
+                    {/loop}
+                    {/pc}
+                </div>
                 {template "content","right_img"}
             </div>
 
