@@ -178,6 +178,10 @@
 	width: 340px;
 	padding-left: 24px;
 }
+.main .right img{
+	display: block;
+	margin-bottom: 10px;
+}
 
 #culture {
 	width: 100%;
