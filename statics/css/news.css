@@ -46,7 +46,7 @@
 
 .infor-nav {
 	position: absolute;
-	right: 313px;
+	right: 0;
 }
 
 .infor .tab-nav {
@@ -238,6 +238,11 @@
 	width: 340px;
 	padding-left: 24px;
 }
+.main .right img{
+	display: block;
+	margin-bottom: 10px;
+}
+
 
 #culture {
 	width: 100%;
