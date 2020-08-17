@@ -38,12 +38,16 @@
 <div class="banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            {pc:content  action="position" posid="1"  order="listorder DESC" thumb="1" num="5"}
-                    {loop $data $r}
-                        <div class="swiper-slide">
-                            <img src="{$r['thumb']}" />
-                        </div>
-                    {/loop}
+        <!--todo-->
+            {pc:get sql="SELECT pos.width,pos.height,child.setting FROM v9_poster_space AS pos INNER JOIN v9_poster AS child ON child.spaceid = pos.spaceid WHERE pos.spaceid = 11 " return="data"}
+            {loop $data $r}
+            {php $width = $r[width];$height=$r[height]}
+            {php $r=current(json_decode($r[setting]));}
+            {php $imageurl=$r->imageurl;$url=$r->linkurl?$r->linkurl:'';}
+                <div class="swiper-slide">
+                    <a href="{$url}"><img src="{$imageurl}" /> </a>
+                </div>
+            {/loop}
             {/pc}
         </div>
         <div class="swiper-pagination"></div>
@@ -107,9 +111,13 @@
 <!--todo-->
 <div class="exhibition_bottom">
     <div class="ex_b-wrap">
-        {pc:get sql="SELECT pic.thumb,pic_data.content FROM v9_picture AS pic INNER JOIN v9_picture_data AS pic_data ON pic.id = pic_data.id WHERE pic.catid = 22 ORDER BY pic.listorder" return="data"}
+        <!--todo-->
+        {pc:get sql="SELECT pos.width,pos.height,child.setting FROM v9_poster_space AS pos INNER JOIN v9_poster AS child ON child.spaceid = pos.spaceid WHERE pos.spaceid = 13 " return="data"}
         {loop $data $r}
-        <a href="{$r[content]}" target="_blank"><img src="{thumb($r[thumb],400,190)}"/></a>
+        {php $width = $r[width];$height=$r[height]}
+        {php $r=current(json_decode($r[setting]));}
+        {php $imageurl=$r->imageurl;$url=$r->linkurl?$r->linkurl:'';}
+        <a href="{$url}" target="_blank"><img src="{thumb($imageurl,440,190)}"/></a>
         {/loop}
         {/pc}
     </div>

@@ -203,12 +203,16 @@
 <div class="banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            {pc:content  action="lists" catid="37" num="5"}
-                {loop $data $r}
+            <!--todo-->
+            {pc:get sql="SELECT pos.width,pos.height,child.setting FROM v9_poster_space AS pos INNER JOIN v9_poster AS child ON child.spaceid = pos.spaceid WHERE pos.spaceid = 14 " return="data"}
+            {loop $data $r}
+            {php $width = $r[width];$height=$r[height]}
+            {php $r=current(json_decode($r[setting]));}
+            {php $imageurl=$r->imageurl;$url=$r->linkurl?$r->linkurl:'';}
                 <div class="swiper-slide">
-                    <img src="{$r['thumb']}" />
+                    <a href="{$url}" target="_blank"><img src="{$imageurl}"/></a>
                 </div>
-                {/loop}
+            {/loop}
             {/pc}
         </div>
         <div class="swiper-pagination"></div>
@@ -415,15 +419,17 @@ $(".join-r li").click(function () {
 <div class="banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
+            <!--todo-->
+            {pc:get sql="SELECT pos.width,pos.height,child.setting FROM v9_poster_space AS pos INNER JOIN v9_poster AS child ON child.spaceid = pos.spaceid WHERE pos.spaceid = 15 " return="data"}
+            {loop $data $r}
+            {php $width = $r[width];$height=$r[height]}
+            {php $r=current(json_decode($r[setting]));}
+            {php $imageurl=$r->imageurl;$url=$r->linkurl?$r->linkurl:'';}
             <div class="swiper-slide">
-                <img src="{IMG_PATH}j-banner1.png" />
+                <a href="{$url}" target="_blank"><img src="{$imageurl}"/></a>
             </div>
-            <div class="swiper-slide">
-                <img src="{IMG_PATH}j-banner2.png" />
-            </div>
-            <div class="swiper-slide">
-                <img src="{IMG_PATH}j-banner3.png" />
-            </div>
+            {/loop}
+            {/pc}
         </div>
         <div class="swiper-pagination"></div>
     </div>
