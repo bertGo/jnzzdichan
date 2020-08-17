@@ -5,7 +5,7 @@
     {php $width = $r[width];$height=$r[height]}
     {php $r=current(json_decode($r[setting]));}
     {php $imageurl=$r->imageurl;$url=$r->linkurl?$r->linkurl:'';}
-    <a class="right-img-a"><img src="{$imageurl}" alt=""/></a>
+    <a class="right-img-a" href="{$url}"><img src="{$imageurl}" alt=""/></a>
     {/loop}
     {/pc}
 </div>
