@@ -204,7 +204,7 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <!--todo-->
-            {pc:get sql="SELECT pos.width,pos.height,child.setting FROM v9_poster_space AS pos INNER JOIN v9_poster AS child ON child.spaceid = pos.spaceid WHERE pos.spaceid = 14 " return="data"}
+            {pc:get sql="SELECT pos.width,pos.height,child.setting FROM v9_poster_space AS pos INNER JOIN v9_poster AS child ON child.spaceid = pos.spaceid WHERE pos.spaceid = 14 ORDER BY child.id " return="data"}
             {loop $data $r}
             {php $width = $r[width];$height=$r[height]}
             {php $r=current(json_decode($r[setting]));}
@@ -420,7 +420,7 @@ $(".join-r li").click(function () {
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <!--todo-->
-            {pc:get sql="SELECT pos.width,pos.height,child.setting FROM v9_poster_space AS pos INNER JOIN v9_poster AS child ON child.spaceid = pos.spaceid WHERE pos.spaceid = 15 " return="data"}
+            {pc:get sql="SELECT pos.width,pos.height,child.setting FROM v9_poster_space AS pos INNER JOIN v9_poster AS child ON child.spaceid = pos.spaceid WHERE pos.spaceid = 15 ORDER BY child.id " return="data"}
             {loop $data $r}
             {php $width = $r[width];$height=$r[height]}
             {php $r=current(json_decode($r[setting]));}
