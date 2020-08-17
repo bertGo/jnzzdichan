@@ -111,7 +111,7 @@
 	line-height: 25px;
 	color: #505960;
 }
-.join-l span{
+.join-l .title-e{
 	width: 100%;
 	float: left;
 	font-size: 17px;
@@ -120,7 +120,7 @@
 	padding-bottom: 22px;
 	border-bottom: 2px solid #A2A4B4;
 }
-.join-l >p{
+.join-con{
 	width: 100%;
 	float: left;
 	margin-top: 40px;
@@ -128,6 +128,10 @@
 	line-height: 28px;
 	color: #606363;
 }
+.join-con p{
+	float: left;
+}
+
 .join-r{
 	width: 936px;
 	float: left;
