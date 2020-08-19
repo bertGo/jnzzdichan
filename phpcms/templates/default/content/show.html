@@ -41,12 +41,12 @@
                                     {if $content[id]==$id}
                                         <li class="introduce">
                                             <div class="date">
-                                                <h1>{date('j',$content[updatetime])}</h1>
-                                                <p>{date('M Y',$content[updatetime])}</p>
+                                                <h1>{date('j',$content[inputtime])}</h1>
+                                                <p>{date('M Y',$content[inputtime])}</p>
                                             </div>
                                             <div class="introduce-infor">
                                                 <h1>{$content[title]}</h1>
-                                                <span>发布者:{$content[username]}</span>
+                                                <span>发布者:中住地产</span>
                                                 <p>{$content[content]}
                                                 </p>
                                             </div>
@@ -57,12 +57,12 @@
                                         <a href="{$next_content[url]}">
                                             <li class="introduce">
                                                 <div class="date">
-                                                    <h1>{date('j',$next_content[updatetime])}</h1>
-                                                    <p>{date('M Y',$next_content[updatetime])}</p>
+                                                    <h1>{date('j',$next_content[inputtime])}</h1>
+                                                    <p>{date('M Y',$next_content[inputtime])}</p>
                                                 </div>
                                                 <div class="introduce-infor">
                                                     <h1>{$next_content[title]}</h1>
-                                                    <span>发布者:{$next_content[username]}</span>
+                                                    <span>发布者:中柱地产</span>
                                                     <p>{$next_content[description]}
                                                     </p>
                                                 </div>
