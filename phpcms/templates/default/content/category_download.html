@@ -62,7 +62,7 @@
                     <div class="news-top">
                         <div class="news-top-l">
                             <a href="{$content[url]}">
-                                <div class="date">{date('M m,Y',$content[updatetime])}</div>
+                                <div class="date">{date('M m,Y',$content[inputtime])}</div>
                                 <h1>{$content[title]}</h1>
                                 <p>{$content[description]}
                                 </p>
@@ -80,8 +80,8 @@
                         <li class="introduce">
                             <a href="{$content[url]}">
                                 <div class="date">
-                                    <h1>{date('j',$content[updatetime])}</h1>
-                                    <p>{date('M Y',$content[updatetime])}</p>
+                                    <h1>{date('j',$content[inputtime])}</h1>
+                                    <p>{date('M Y',$content[inputtime])}</p>
                                 </div>
                                 <div class="introduce-infor">
                                     <h1>{$content[title]}</h1>
