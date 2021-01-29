@@ -1,4 +1,187 @@
-<?php defined('IN_PHPCMS') or exit('No permission resources.'); ?><?php include template("content","header"); ?>
+<?php defined('IN_PHPCMS') or exit('No permission resources.'); ?><?php if($_GET['index']=='2') { ?>
+<?php include template("content","header"); ?>
+<style>
+    .grow-up{
+        float: left;
+        width: 100%;
+        height: 666px;
+        background: url("<?php echo IMG_PATH;?>chengzhang.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+    }
+    .crumbs .zhu{
+        background: url("<?php echo IMG_PATH;?>icon2.png") no-repeat 0 32px;
+        padding-left: 23px;
+    }
+    .crumbs a.on {
+        background: url("<?php echo IMG_PATH;?>icon1.png") no-repeat 0 36px;
+    }
+    .grow-up-wrap {
+        position: absolute;
+        width: 100%;
+        height: 400px;
+        left: 0;
+        bottom: 0;
+    }
+
+    .swiper-wrapper {
+        width: 1290px;
+        margin: 0 auto;
+    }
+
+    .swiper-slide {
+        float: left;
+        width: 1290px;
+    }
+
+    .swiper-slide img {
+        /* width: 100%;
+        height: 100%;
+        float: left; */
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #FFFFFF !important;
+    }
+</style>
+<link rel="stylesheet" href="<?php echo CSS_PATH;?>about.css" />
+<div class="banner">
+    <img src="<?php echo IMG_PATH;?>about-banner.png"/>
+</div>
+<div class="infor">
+    <div class="infor-wrap">
+        <div class="crumbs" style="border: none;">
+            <div class="crumbs-wrap">
+                <a href="index.php" class="zhu">中住地产</a>
+                <a class="on">成长历程</a>
+            </div>
+        </div>
+
+        <div class="infor-nav">
+            <ul class="tab-nav tab1">
+                <li class="zz_check" data-index="0"><a >中住介绍</a></li>
+                <li class="zz_check" data-index="1"><a >企业文化</a></li>
+                <li class="zz_check" data-index="2"><a >成长历程</a></li>
+            </ul>
+             <div class="xian" style="left: 0;"></div>
+        </div>
+    </div>
+
+
+    <div class="tab-box" style="display: block;">
+        <div class="main">
+            <div class="grow-up">
+                <div class="grow-up-top">
+                    <img src="<?php echo IMG_PATH;?>chengzhang-top.png" />
+                </div>
+                <!-- 成长历程切换 -->
+                <div class="grow-up-wrap">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <!--成长历程轮播图id-->
+                            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=f5451270b95a75310e8aa377c17a80b5&action=lists&catid=17&num=5&order=id+DESC&page=%24page&moreinfo=1\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$pagesize = 5;$page = intval($page) ? intval($page) : 1;if($page<=0){$page=1;}$offset = ($page - 1) * $pagesize;$content_total = $content_tag->count(array('catid'=>'17','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));if(!defined('IN_ADMIN') && $page > 1 && ceil($content_total/$pagesize) < $page){ob_end_clean();header("HTTP/1.1 404 Not Found");header("Status: 404 Not Found");include template("content", "404");ob_end_flush();exit;}$pages = pages($content_total, $page, $pagesize, $urlrule);$data = $content_tag->lists(array('catid'=>'17','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));}?>
+                            <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
+                            <div class="swiper-slide">
+                                <img src="<?php echo $r['thumb'];?>"/>
+                            </div>
+                            <?php $n++;}unset($n); ?>
+                            <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="grow-bottom">
+                <div class="grow-bottom-wrap">
+                    <!--成长历程footer图片id-->
+                    <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=fda1691b1cc5c0a8aa009fafd54258c4&action=lists&catid=18&num=2&order=id+DESC&page=%24page&moreinfo=1\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$pagesize = 2;$page = intval($page) ? intval($page) : 1;if($page<=0){$page=1;}$offset = ($page - 1) * $pagesize;$content_total = $content_tag->count(array('catid'=>'18','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));if(!defined('IN_ADMIN') && $page > 1 && ceil($content_total/$pagesize) < $page){ob_end_clean();header("HTTP/1.1 404 Not Found");header("Status: 404 Not Found");include template("content", "404");ob_end_flush();exit;}$pages = pages($content_total, $page, $pagesize, $urlrule);$data = $content_tag->lists(array('catid'=>'18','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));}?>
+                    <?php $i=0?>
+                    <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
+                    <img src="<?php echo $r['thumb'];?>" <?php if($i==0) { ?> style="width: 525px;height: 188px;"<?php } else { ?>style="width: 743px;height: 188px;"<?php } ?> />
+                    <?php $i++; ?>
+                    <?php $n++;}unset($n); ?>
+                    <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script src="<?php echo JS_PATH;?>jquery-1.min.js"></script>
+<script src="<?php echo JS_PATH;?>swiper-bundle.min.js"></script>
+<script src="<?php echo JS_PATH;?>nav.js"></script>
+<script>
+    //房源选项卡
+    $(document).ready(function() {
+        function tab(i) {
+            $(i).children().click(function() { //触发方式//click//mouseover
+                $(this).siblings().removeClass();
+                $(this).addClass('hover');
+                $(this).parent().parent().siblings('.tab-box').hide();
+                $(this).parent().parent().siblings('.tab-box').eq($(this).index()).show();
+                if ($(this).index() == 0) {
+                    $('.xian').animate({
+                        left: '0px'
+                    });
+                } else if ($(this).index() == 1) {
+                    {
+                        $('.xian').animate({
+                            left: '80px'
+                        });
+                    }
+                } else if ($(this).index() == 2) {
+                    {
+                        $('.xian').animate({
+                            left: '160px'
+                        });
+                    }
+                } else if ($(this).index() == 3) {
+                    {
+                        $('.xian').animate({
+                            left: '240px'
+                        });
+                    }
+                }
+            })
+        }
+
+        //tab调用
+        $(function() {
+            tab('.tab1')
+            tab('.tab2')
+
+        })
+        $(function() {
+            $(".nav").click(function() {
+                $(this).toggleClass("color").siblings().removeClass("color") //颜色
+                $(this).next().slideToggle(500).siblings("ul").slideUp(500);
+            })
+        })
+    });
+</script>
+<!-- 成长历程切换 -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        // cssMode: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true //修改swiper的父元素时，自动初始化swiper
+    });
+</script>
+<?php include template("content","footer"); ?>
+
+<?php } else { ?>
+
+<?php include template("content","header"); ?>
 
 <link rel="stylesheet" href="<?php echo CSS_PATH;?>style.css" />
 <link rel="stylesheet" href="<?php echo CSS_PATH;?>swiper-bundle.min.css" />
@@ -55,26 +238,49 @@
     <img src="<?php echo IMG_PATH;?>about-banner.png"/>
 </div>
 <div class="infor">
-    <!-- <div class="infor-wrap"> -->
-    <div class="crumbs">
-        <div class="crumbs-wrap">
-            <a href="index.php" class="zhu">中住地产</a>
-            <a class="on">中住介绍</a>
+     <div class="infor-wrap">
+        <div class="crumbs">
+            <div class="crumbs-wrap">
+                <a href="index.php" class="zhu">中住地产</a>
+                <a class="on">中住介绍</a>
+            </div>
         </div>
-
-    </div>
     <div class="infor-nav">
         <ul class="tab-nav tab1">
-            <li id="t_intro" class="hover">中住介绍</li>
-            <li id="t_culture" class="">企业文化 </li>
-            <li id="t_progress" class="">成长历程</li>
+            <li class="zz_check" data-index="0"><a  >中住介绍</a></li>
+            <li class="zz_check" data-index="1"><a  class="">企业文化 </a></li>
+            <li class="zz_check" data-index="2"><a >成长历程</a></li>
         </ul>
-        <div class="xian" style="left: 0;"></div>
+         <div class="xian" style="left: 0;"></div>
     </div>
 
-    <div class="tab-box" style="display: block;">
+    <div class="tab-box" >
         <div class="main">
             <div class="main-wrap">
+<!--                <div class="left">-->
+<!--                    <div class="corp-culture" id="culture">-->
+<!--                        <ul id="culture-nav">-->
+<!--                            <li class="current">企业使命</li>-->
+<!--                            <li>企业价值观</li>-->
+<!--                            <li>企业愿景</li>-->
+<!--                        </ul>-->
+<!--                        <div id="culture-content">-->
+<!--                            <div style="display:block;">-->
+<!--                                <img src="<?php echo IMG_PATH;?>shiming.png" />-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <img src="<?php echo IMG_PATH;?>jiazhi.png" />-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <p>成为中国最卓越的不动产综合服务提供商</p>-->
+<!--                                <img src="<?php echo IMG_PATH;?>culture1.png" />-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div style="clear: both;"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
                 <div class="left">
                     <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=4e1a8829ed0f6646c4081408dd8c6d9e&action=lists&catid=15&num=1&order=id+DESC&page=%24page&moreinfo=1\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$pagesize = 1;$page = intval($page) ? intval($page) : 1;if($page<=0){$page=1;}$offset = ($page - 1) * $pagesize;$content_total = $content_tag->count(array('catid'=>'15','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));if(!defined('IN_ADMIN') && $page > 1 && ceil($content_total/$pagesize) < $page){ob_end_clean();header("HTTP/1.1 404 Not Found");header("Status: 404 Not Found");include template("content", "404");ob_end_flush();exit;}$pages = pages($content_total, $page, $pagesize, $urlrule);$data = $content_tag->lists(array('catid'=>'15','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));}?>
                     <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
@@ -91,58 +297,53 @@
         </div>
     </div>
 
-    <div class="tab-box none" style="display: none;">
+    <div class="tab-box none">
         <div class="main">
             <div class="main-wrap">
                 <div class="left">
                     <div class="corp-culture" id="culture">
                         <ul id="culture-nav">
-                            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=3b69fc14e50b19460c24dd64c342b814&action=lists&catid=13&num=3&order=id+DESC&page=%24page&moreinfo=1\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$pagesize = 3;$page = intval($page) ? intval($page) : 1;if($page<=0){$page=1;}$offset = ($page - 1) * $pagesize;$content_total = $content_tag->count(array('catid'=>'13','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));if(!defined('IN_ADMIN') && $page > 1 && ceil($content_total/$pagesize) < $page){ob_end_clean();header("HTTP/1.1 404 Not Found");header("Status: 404 Not Found");include template("content", "404");ob_end_flush();exit;}$pages = pages($content_total, $page, $pagesize, $urlrule);$data = $content_tag->lists(array('catid'=>'13','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));}?>
-                            <?php $n=1?>
-                            <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
-                            <li <?php if($n==1) { ?>class="current" <?php } ?>><?php echo $r['title'];?></li>
-                            <?php $n++?>
-                            <?php $n++;}unset($n); ?>
-                            <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+                            <li class="current">企业使命</li>
+                            <li>企业价值观</li>
+                            <li>企业愿景</li>
                         </ul>
                         <div id="culture-content">
-                            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=3b69fc14e50b19460c24dd64c342b814&action=lists&catid=13&num=3&order=id+DESC&page=%24page&moreinfo=1\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$pagesize = 3;$page = intval($page) ? intval($page) : 1;if($page<=0){$page=1;}$offset = ($page - 1) * $pagesize;$content_total = $content_tag->count(array('catid'=>'13','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));if(!defined('IN_ADMIN') && $page > 1 && ceil($content_total/$pagesize) < $page){ob_end_clean();header("HTTP/1.1 404 Not Found");header("Status: 404 Not Found");include template("content", "404");ob_end_flush();exit;}$pages = pages($content_total, $page, $pagesize, $urlrule);$data = $content_tag->lists(array('catid'=>'13','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));}?>
-                            <?php $n=1?>
-                            <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
-                            <div <?php if($n==1) { ?>style="display:block;<?php } ?>">
-                                <p><?php echo $r['content'];?></p>
-                                <img src="<?php echo $r['thumb'];?>" />
-                            </div>
-                            <?php $n++?>
-                            <?php $n++;}unset($n); ?>
-                            <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
-                            <div>
-                                <p>
-                                    价值观：利他客户需求至上，团队利益为先，利他才能利己。
-
-                                    合作目标一致、勇于担当、齐心协力、彼此配合。
-
-                                    宽容多用审视的眼光看自己，多用赞赏的心态看别人。
-
-                                    诚信做真事、尊重事实、说真话、信守承诺。
-
-                                    敬业提前规划、有条不紊、效率为先、精益求精、客户为先、及时响应。
-
-                                    感恩常怀感恩之心，常为感恩之行。
-                                </p>
+                            <div style="display:block;">
+                                <img src="<?php echo IMG_PATH;?>shiming.png" />
                             </div>
                             <div>
-                                <p>
-                                    员工幸福：打造赋能型平台，创造员工精神物质双丰收
-
-                                    客户感动：洞察客户心理与实质需求，提供超期望值服务
-
-                                    行业发展：严守法律法规，以身作则带动行业环境优化
-
-                                    社会和谐：企业发展与社会责任并重，树立和谐发展观
-                                </p>
+                                <img src="<?php echo IMG_PATH;?>jiazhi.png" />
+                            </div>
+                            <div>
+                                <p>成为中国最卓越的不动产综合服务提供商</p>
+                                <img src="<?php echo IMG_PATH;?>culture1.png" />
                             </div>
                         </div>
+                        <div style="clear: both;"></div>
+                    </div>
+
+                        <!--                        <ul id="culture-nav">-->
+<!--                            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=3b69fc14e50b19460c24dd64c342b814&action=lists&catid=13&num=3&order=id+DESC&page=%24page&moreinfo=1\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$pagesize = 3;$page = intval($page) ? intval($page) : 1;if($page<=0){$page=1;}$offset = ($page - 1) * $pagesize;$content_total = $content_tag->count(array('catid'=>'13','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));if(!defined('IN_ADMIN') && $page > 1 && ceil($content_total/$pagesize) < $page){ob_end_clean();header("HTTP/1.1 404 Not Found");header("Status: 404 Not Found");include template("content", "404");ob_end_flush();exit;}$pages = pages($content_total, $page, $pagesize, $urlrule);$data = $content_tag->lists(array('catid'=>'13','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));}?>-->
+<!--                            <?php $n=1?>-->
+<!--                            <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>-->
+<!--                            <li <?php if($n==1) { ?>class="current" <?php } ?>><?php echo $r['title'];?></li>-->
+<!--                            <?php $n++?>-->
+<!--                            <?php $n++;}unset($n); ?>-->
+<!--                            <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>-->
+<!--                        </ul>-->
+
+<!--                        <div id="culture-content">-->
+<!--                            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=3b69fc14e50b19460c24dd64c342b814&action=lists&catid=13&num=3&order=id+DESC&page=%24page&moreinfo=1\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$pagesize = 3;$page = intval($page) ? intval($page) : 1;if($page<=0){$page=1;}$offset = ($page - 1) * $pagesize;$content_total = $content_tag->count(array('catid'=>'13','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));if(!defined('IN_ADMIN') && $page > 1 && ceil($content_total/$pagesize) < $page){ob_end_clean();header("HTTP/1.1 404 Not Found");header("Status: 404 Not Found");include template("content", "404");ob_end_flush();exit;}$pages = pages($content_total, $page, $pagesize, $urlrule);$data = $content_tag->lists(array('catid'=>'13','order'=>'id DESC','moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));}?>-->
+<!--                            <?php $n=1?>-->
+<!--                            <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>-->
+<!--                            <div <?php if($n==1) { ?>style="display:block;<?php } ?>">-->
+<!--                                <p><?php echo $r['content'];?></p>-->
+<!--                                <img src="<?php echo $r['thumb'];?>" />-->
+<!--                            </div>-->
+<!--                            <?php $n++?>-->
+<!--                            <?php $n++;}unset($n); ?>-->
+<!--                            <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>-->
+<!--                        </div>-->
                         <div style="clear: both;"></div>
                     </div>
                 </div>
@@ -150,7 +351,7 @@
             </div>
         </div>
     </div>
-    <div class="tab-box none" style="display: none;">
+    <div class="tab-box none">
         <div class="main">
             <div class="grow-up">
                 <!-- 成长历程切换 -->
@@ -186,10 +387,8 @@
         </div>
     </div>
 
-    <!-- </div> -->
+     </div>
 </div>
-
-
 
 <!--main-->
 <!--<div class="main">-->
@@ -319,46 +518,60 @@
 <script>
     //房源选项卡
     $(document).ready(function() {
+    /*
+        切换二级导航下划线
+    */
+        function sec_nav(index) {
+            if (index == 0) {
+                $('.xian').animate({
+                    left: '0px'
+                });
+            } else if (index == 1) {
+                {
+                    $('.xian').animate({
+                        left: '80px'
+                    });
+                }
+            } else if (index == 2) {
+                {
+                    $('.xian').animate({
+                        left: '160px'
+                    });
+                }
+            } else if (index == 3) {
+                {
+                    $('.xian').animate({
+                        left: '240px'
+                    });
+                }
+            }
+        }
+        //点进来时判断显示哪一个
+        /*
+        0 中住介绍
+        1 企业文化
+        2 成长历程
+         */
+        let index=getUrlParam('index');
+        $ul=$(".tab-box");
+        $ul.css('display', 'none'); //因为默认是第一个显示  所以先隐藏
+        $ul.eq(index).css('display', 'block'); //当前内容再出现
+        sec_nav(index);
         function tab(i) {
             $(i).children().click(function() { //触发方式//click//mouseover
                 $(this).siblings().removeClass();
                 $(this).addClass('hover');
                 $(this).parent().parent().siblings('.tab-box').hide();
                 $(this).parent().parent().siblings('.tab-box').eq($(this).index()).show();
-                console.log('index:'+$(this).index());
-                if ($(this).index() == 0) {
-                    $('.xian').animate({
-                        left: '0px'
-                    });
-                } else if ($(this).index() == 1) {
-                    {
-                        $('.xian').animate({
-                            left: '80px'
-                        });
-                    }
-                } else if ($(this).index() == 2) {
-                    {
-                        $('.xian').animate({
-                            left: '160px'
-                        });
-                    }
-                } else if ($(this).index() == 3) {
-                    {
-                        $('.xian').animate({
-                            left: '240px'
-                        });
-                    }
-                }
+                sec_nav($(this).index());
             })
         }
-
         //tab调用
         $(function() {
             tab('.tab1')
             tab('.tab2')
             var url = location.href;
             var url_arr = url.split('?');
-            console.log(url_arr);
             var tab_id = url_arr[1];
             $("#t_"+tab_id).click();
         })
@@ -396,5 +609,16 @@
         observeParents: true //修改swiper的父元素时，自动初始化swiper
     });
 </script>
-
 <?php include template("content","footer"); ?>
+<?php } ?>
+<script>
+    //关于中住的路径跳转
+    //todo
+    $(function () {
+        let goto_url='/index.php?m=content&c=index&a=lists&catid=6';
+        $(".zz_check").click(function () {
+            let index=$(this).attr('data-index');
+            window.location.href=goto_url+"&index="+index;
+        })
+    })
+</script>

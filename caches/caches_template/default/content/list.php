@@ -55,7 +55,7 @@
     <img src="<?php echo IMG_PATH;?>about-banner.png"/>
 </div>
 <div class="infor">
-    <!-- <div class="infor-wrap"> -->
+     <div class="infor-wrap">
     <div class="crumbs">
         <div class="crumbs-wrap">
             <a href="index.php" class="zhu">中住地产</a>
@@ -186,7 +186,7 @@
         </div>
     </div>
 
-    <!-- </div> -->
+     </div>
 </div>
 
 

@@ -43,7 +43,7 @@
 
 .infor-nav {
 	position: absolute;
-	right: 313px;
+	right: 0;
 }
 
 .infor .tab-nav {
@@ -121,7 +121,7 @@
 	height: 78px;
 	padding: 12px;
 	color: #26B7BC;
-	background-color: #cbcbcb;
+	background-color: #f6fafc;
 }
 .introduce .date h1{
 	width: 100%;
@@ -177,6 +177,10 @@
 	padding-top: 26px;
 	width: 340px;
 	padding-left: 24px;
+}
+.main .right img{
+	display: block;
+	margin-bottom: 10px;
 }
 
 #culture {

@@ -17,66 +17,67 @@
 </div>
 
 <div class="infor">
-    <!-- <div class="infor-wrap"> -->
-    <?php include template("content","head_url"); ?>
+     <div class="infor-wrap">
+        <?php include template("content","head_url"); ?>
 
-    <!-- 如果修改了新闻中心，这里改成新闻中心对应的catid   -->
-    <div class="infor-nav">
-        <ul class="tab-nav tab1">
-            <?php $n=1;if(is_array(subcat(31))) foreach(subcat(31) AS $r) { ?>
-            <li <?php if($catid==$r[catid]) { ?> class="hover" <?php } ?> ><a href="<?php echo $r['url'];?>" title="<?php echo $r['catname'];?>"><?php echo $r['catname'];?></a></li>
-            <?php $n++;}unset($n); ?>
-        </ul>
-        <div class="xian" style="left: 0;"></div>
-    </div>
+        <!-- 如果修改了新闻中心，这里改成新闻中心对应的catid   -->
+        <div class="infor-nav">
+            <ul class="tab-nav tab1">
+                <?php $n=1;if(is_array(subcat(31))) foreach(subcat(31) AS $r) { ?>
+                <li <?php if($catid==$r[catid]) { ?> class="hover" <?php } ?> ><a href="<?php echo $r['url'];?>" title="<?php echo $r['catname'];?>"><?php echo $r['catname'];?></a></li>
+                <?php $n++;}unset($n); ?>
+            </ul>
+            <div class="xian" style="left: 0;"></div>
+        </div>
 
-    <div class="tab-box " >
-        <div class="main">
-            <div class="main-wrap">
-                <div class="left">
-                    <ul class="news-con">
-                        <?php $sql="id >= $id"?>
-                        <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=338d1614473c27cbe4c87d856359d7cf&action=lists&catid=%24catid&where=%24sql&num=100&page=%24page&moreinfo=1\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$pagesize = 100;$page = intval($page) ? intval($page) : 1;if($page<=0){$page=1;}$offset = ($page - 1) * $pagesize;$content_total = $content_tag->count(array('catid'=>$catid,'where'=>$sql,'moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));if(!defined('IN_ADMIN') && $page > 1 && ceil($content_total/$pagesize) < $page){ob_end_clean();header("HTTP/1.1 404 Not Found");header("Status: 404 Not Found");include template("content", "404");ob_end_flush();exit;}$pages = pages($content_total, $page, $pagesize, $urlrule);$data = $content_tag->lists(array('catid'=>$catid,'where'=>$sql,'moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));}?>
-                            <?php $n=1;if(is_array($data)) foreach($data AS $content) { ?>
-                                <?php if($content[id]==$id) { ?>
-                                    <li class="introduce">
-                                        <div class="date">
-                                            <h1><?php echo date('j',$content[updatetime]);?></h1>
-                                            <p><?php echo date('M Y',$content[updatetime]);?></p>
-                                        </div>
-                                        <div class="introduce-infor">
-                                            <h1><?php echo $content['title'];?></h1>
-                                            <span>发布者:<?php echo $content['username'];?></span>
-                                            <p><?php echo $content['content'];?>
-                                            </p>
-                                        </div>
-                                    </li>
-                                <!--下一篇文章-->
-                                <?php $next_content=next($data)?>
-                                    <?php if(!empty($next_content)) { ?>
-                                    <a href="<?php echo $next_content['url'];?>">
+        <div class="tab-box " >
+            <div class="main">
+                <div class="main-wrap">
+                    <div class="left">
+                        <ul class="news-con">
+                            <?php $sql="id >= $id"?>
+                            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=338d1614473c27cbe4c87d856359d7cf&action=lists&catid=%24catid&where=%24sql&num=100&page=%24page&moreinfo=1\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$pagesize = 100;$page = intval($page) ? intval($page) : 1;if($page<=0){$page=1;}$offset = ($page - 1) * $pagesize;$content_total = $content_tag->count(array('catid'=>$catid,'where'=>$sql,'moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));if(!defined('IN_ADMIN') && $page > 1 && ceil($content_total/$pagesize) < $page){ob_end_clean();header("HTTP/1.1 404 Not Found");header("Status: 404 Not Found");include template("content", "404");ob_end_flush();exit;}$pages = pages($content_total, $page, $pagesize, $urlrule);$data = $content_tag->lists(array('catid'=>$catid,'where'=>$sql,'moreinfo'=>'1','limit'=>$offset.",".$pagesize,'action'=>'lists',));}?>
+                                <?php $n=1;if(is_array($data)) foreach($data AS $content) { ?>
+                                    <?php if($content[id]==$id) { ?>
                                         <li class="introduce">
                                             <div class="date">
-                                                <h1><?php echo date('j',$next_content[updatetime]);?></h1>
-                                                <p><?php echo date('M Y',$next_content[updatetime]);?></p>
+                                                <h1><?php echo date('j',$content[inputtime]);?></h1>
+                                                <p><?php echo date('M Y',$content[inputtime]);?></p>
                                             </div>
                                             <div class="introduce-infor">
-                                                <h1><?php echo $next_content['title'];?></h1>
-                                                <span>发布者:<?php echo $next_content['username'];?></span>
-                                                <p><?php echo $next_content['description'];?>
+                                                <h1><?php echo $content['title'];?></h1>
+                                                <span>发布者:中住地产</span>
+                                                <p><?php echo $content['content'];?>
                                                 </p>
                                             </div>
                                         </li>
-                                    </a>
+                                    <!--下一篇文章-->
+                                    <?php $next_content=next($data)?>
+                                        <?php if(!empty($next_content)) { ?>
+                                        <a href="<?php echo $next_content['url'];?>">
+                                            <li class="introduce">
+                                                <div class="date">
+                                                    <h1><?php echo date('j',$next_content[inputtime]);?></h1>
+                                                    <p><?php echo date('M Y',$next_content[inputtime]);?></p>
+                                                </div>
+                                                <div class="introduce-infor">
+                                                    <h1><?php echo $next_content['title'];?></h1>
+                                                    <span>发布者:中柱地产</span>
+                                                    <p><?php echo $next_content['description'];?>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </a>
+                                        <?php } ?>
                                     <?php } ?>
-                                <?php } ?>
-                            <?php $n++;}unset($n); ?>
-                        <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
-                    </ul>
+                                <?php $n++;}unset($n); ?>
+                            <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
+                        </ul>
+                    </div>
+                    <?php include template("content","right_img"); ?>
                 </div>
-                <?php include template("content","right_img"); ?>
-            </div>
 
+            </div>
         </div>
     </div>
 </div>

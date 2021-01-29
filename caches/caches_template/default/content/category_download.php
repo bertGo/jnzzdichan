@@ -17,7 +17,7 @@
     <img src="<?php echo IMG_PATH;?>about-banner.png"/>
 </div>
 <div class="infor">
-    <!-- <div class="infor-wrap"> -->
+     <div class="infor-wrap">
     <!-- 如果修改了新闻中心，将catid改成新闻中心对应的id todo-->
     <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=1b0b5f220dc5ebe17cde4282665c1e82&action=category&catid=31&num=25\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'31','limit'=>'25',));}?>
     <?php $catnum=0?>
@@ -62,7 +62,7 @@
                     <div class="news-top">
                         <div class="news-top-l">
                             <a href="<?php echo $content['url'];?>">
-                                <div class="date"><?php echo date('M m,Y',$content[updatetime]);?></div>
+                                <div class="date"><?php echo date('M m,Y',$content[inputtime]);?></div>
                                 <h1><?php echo $content['title'];?></h1>
                                 <p><?php echo $content['description'];?>
                                 </p>
@@ -80,8 +80,8 @@
                         <li class="introduce">
                             <a href="<?php echo $content['url'];?>">
                                 <div class="date">
-                                    <h1><?php echo date('j',$content[updatetime]);?></h1>
-                                    <p><?php echo date('M Y',$content[updatetime]);?></p>
+                                    <h1><?php echo date('j',$content[inputtime]);?></h1>
+                                    <p><?php echo date('M Y',$content[inputtime]);?></p>
                                 </div>
                                 <div class="introduce-infor">
                                     <h1><?php echo $content['title'];?></h1>
@@ -94,7 +94,7 @@
                     <?php $j++; ?>
                     <?php $n++;}unset($n); ?>
                     </ul>
-                    <div id="page" class="page_div"><?php echo $pages;?></div>
+                    <div id="page" class="page_div" <?php if(empty($pages)) { ?> style="visibility: hidden;" <?php } ?>><?php echo $pages;?></div>
                 </div>
                 <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
                 <?php } ?>
@@ -109,7 +109,7 @@
 
 
 
-    <!-- </div> -->
+     </div>
 </div>
 
 </body>

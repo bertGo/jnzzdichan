@@ -9,11 +9,11 @@
     .banner {
         float: left;
         width: 100%;
-        height: 471px;
+        height: 413px;
     }
 
     .swiper-slide {
-        height: 471px;
+        height: 413px;
     }
 
     .swiper-slide img {
@@ -38,12 +38,16 @@
 <div class="banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            {pc:content  action="position" posid="1"  order="listorder DESC" thumb="1" num="5"}
-                    {loop $data $r}
-                        <div class="swiper-slide">
-                            <img src="{$r['thumb']}" />
-                        </div>
-                    {/loop}
+        <!--todo-->
+            {pc:get sql="SELECT pos.width,pos.height,child.setting FROM v9_poster_space AS pos INNER JOIN v9_poster AS child ON child.spaceid = pos.spaceid WHERE pos.spaceid = 11 ORDER BY child.id" return="data"}
+            {loop $data $r}
+            {php $width = $r[width];$height=$r[height]}
+            {php $r=current(json_decode($r[setting]));}
+            {php $imageurl=$r->imageurl;$url=$r->linkurl?$r->linkurl:'';}
+                <div class="swiper-slide">
+                    <a href="{$url}"><img src="{$imageurl}" /> </a>
+                </div>
+            {/loop}
             {/pc}
         </div>
         <div class="swiper-pagination"></div>
@@ -52,12 +56,14 @@
 <!-- 内容 -->
 <div class="exhibition_top">
     <div class="ex_top-wrap">
-        {pc:announce  action="lists" siteid="$siteid" num="2"}
             <div class="introduce">
-                <h1>{$data[0]['title']}</h1>
-                <p>{$data[0][content]}</p>
+                {pc:get sql="SELECT new.url ,new.description, new.title FROM v9_news AS new INNER JOIN v9_news_data AS data ON data.id = new.id WHERE new.catid = 32 ORDER BY new.listorder " return="data"}
+                    <a href="{$data[0][url]}">
+                            <h1>{$data[0]['title']}</h1>
+                            <p>{$data[0][description]}</p>
+                    </a>
+                {/pc}
             </div>
-        {/pc}
         <!-- 房源tab -->
         <div class="resources">
             <div class="room">
@@ -80,7 +86,7 @@
                         <ul class="house">
                             {pc:content action="lists" catid="$r[catid]" moreinfo="1"}
                             {loop $data $val}
-                            <a href="{$val[content]}">
+                            <a href="{$val[content]}" target="_blank">
                                 <li>
                                     <img src="{$val[thumb]}" />
                                     <div class="infor">
@@ -105,9 +111,13 @@
 <!--todo-->
 <div class="exhibition_bottom">
     <div class="ex_b-wrap">
-        {pc:content  action="lists" catid="22"   num="3"}
+        <!--todo-->
+        {pc:get sql="SELECT pos.width,pos.height,child.setting FROM v9_poster_space AS pos INNER JOIN v9_poster AS child ON child.spaceid = pos.spaceid WHERE pos.spaceid = 13 ORDER BY child.id" return="data"}
         {loop $data $r}
-        <img src="{thumb($r[thumb],400,190)}" />
+        {php $width = $r[width];$height=$r[height]}
+        {php $r=current(json_decode($r[setting]));}
+        {php $imageurl=$r->imageurl;$url=$r->linkurl?$r->linkurl:'';}
+        <a href="{$url}" target="_blank"><img src="{thumb($imageurl,440,190)}"/></a>
         {/loop}
         {/pc}
     </div>
@@ -366,6 +376,7 @@
       // 如果需要分页器
         pagination: {
             el: '.swiper-pagination',
+            clickable :true,
         },
 	autoplay:true,
 

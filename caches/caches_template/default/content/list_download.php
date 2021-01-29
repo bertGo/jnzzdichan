@@ -17,7 +17,7 @@
     <img src="<?php echo IMG_PATH;?>about-banner.png"/>
 </div>
 <div class="infor">
-    <!-- <div class="infor-wrap"> -->
+     <div class="infor-wrap">
     <?php include template("content","head_url"); ?>
 <!-- 如果修改了新闻中心，这里改成新闻中心对应的catid   -->
     <div class="infor-nav">
@@ -74,8 +74,8 @@
                         <?php $j++; ?>
                         <?php $n++;}unset($n); ?>
                     </ul>
-
-                    <div id="page" class="page_div"><?php echo $pages;?></div>
+<!--                    没有页码则隐藏 -->
+                    <div id="page" <?php if(empty($pages)) { ?> style="visibility: hidden;" <?php } ?> class="page_div"><?php echo $pages;?></div>
                 </div>
                 <?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
                 <?php include template("content","right_img"); ?>
@@ -83,7 +83,7 @@
 
         </div>
     </div>
-    <!-- </div> -->
+     </div>
 </div>
 
 </body>

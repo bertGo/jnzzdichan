@@ -45,7 +45,7 @@
 
 .infor-nav {
 	position: absolute;
-	right: 313px;
+	right: 0;
 }
 
 .infor .tab-nav {
@@ -101,7 +101,6 @@
 	float: left;
 	font-size: 86px;
 	line-height: 86px;
-	margin-top: 74px;
 	color: #26B7BC;
 }
 .join-l b{
@@ -112,7 +111,7 @@
 	line-height: 25px;
 	color: #505960;
 }
-.join-l span{
+.join-l .title-e{
 	width: 100%;
 	float: left;
 	font-size: 17px;
@@ -121,7 +120,7 @@
 	padding-bottom: 22px;
 	border-bottom: 2px solid #A2A4B4;
 }
-.join-l >p{
+.join-con{
 	width: 100%;
 	float: left;
 	margin-top: 40px;
@@ -129,10 +128,13 @@
 	line-height: 28px;
 	color: #606363;
 }
+.join-con p{
+	float: left;
+}
+
 .join-r{
 	width: 936px;
 	float: left;
-	margin-top: 94px;
 }
 .join-r li{
 	float: left;

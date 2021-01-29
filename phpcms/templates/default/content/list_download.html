@@ -17,7 +17,7 @@
     <img src="{IMG_PATH}about-banner.png"/>
 </div>
 <div class="infor">
-    <!-- <div class="infor-wrap"> -->
+     <div class="infor-wrap">
     {template "content","head_url"}
 <!-- 如果修改了新闻中心，这里改成新闻中心对应的catid   -->
     <div class="infor-nav">
@@ -74,8 +74,8 @@
                         {$j++}
                         {/loop}
                     </ul>
-
-                    <div id="page" class="page_div">{$pages}</div>
+<!--                    没有页码则隐藏 -->
+                    <div id="page" {if empty($pages)} style="visibility: hidden;" {/if} class="page_div">{$pages}</div>
                 </div>
                 {/pc}
                 {template "content","right_img"}
@@ -83,7 +83,7 @@
 
         </div>
     </div>
-    <!-- </div> -->
+     </div>
 </div>
 
 </body>

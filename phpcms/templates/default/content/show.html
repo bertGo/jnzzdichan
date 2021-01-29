@@ -17,66 +17,67 @@
 </div>
 
 <div class="infor">
-    <!-- <div class="infor-wrap"> -->
-    {template "content","head_url"}
+     <div class="infor-wrap">
+        {template "content","head_url"}
 
-    <!-- 如果修改了新闻中心，这里改成新闻中心对应的catid   -->
-    <div class="infor-nav">
-        <ul class="tab-nav tab1">
-            {loop subcat(31) $r}
-            <li {if $catid==$r[catid]} class="hover" {/if} ><a href="{$r[url]}" title="{$r[catname]}">{$r[catname]}</a></li>
-            {/loop}
-        </ul>
-        <div class="xian" style="left: 0;"></div>
-    </div>
+        <!-- 如果修改了新闻中心，这里改成新闻中心对应的catid   -->
+        <div class="infor-nav">
+            <ul class="tab-nav tab1">
+                {loop subcat(31) $r}
+                <li {if $catid==$r[catid]} class="hover" {/if} ><a href="{$r[url]}" title="{$r[catname]}">{$r[catname]}</a></li>
+                {/loop}
+            </ul>
+            <div class="xian" style="left: 0;"></div>
+        </div>
 
-    <div class="tab-box " >
-        <div class="main">
-            <div class="main-wrap">
-                <div class="left">
-                    <ul class="news-con">
-                        {php $sql="id >= $id"}
-                        {pc:content  action="lists" catid="$catid" where="$sql" num="100" page="$page"  moreinfo="1" }
-                            {loop $data $content}
-                                {if $content[id]==$id}
-                                    <li class="introduce">
-                                        <div class="date">
-                                            <h1>{date('j',$content[updatetime])}</h1>
-                                            <p>{date('M Y',$content[updatetime])}</p>
-                                        </div>
-                                        <div class="introduce-infor">
-                                            <h1>{$content[title]}</h1>
-                                            <span>发布者:{$content[username]}</span>
-                                            <p>{$content[content]}
-                                            </p>
-                                        </div>
-                                    </li>
-                                <!--下一篇文章-->
-                                {php $next_content=next($data)}
-                                    {if !empty($next_content)}
-                                    <a href="{$next_content[url]}">
+        <div class="tab-box " >
+            <div class="main">
+                <div class="main-wrap">
+                    <div class="left">
+                        <ul class="news-con">
+                            {php $sql="id >= $id"}
+                            {pc:content  action="lists" catid="$catid" where="$sql" num="100" page="$page"  moreinfo="1" }
+                                {loop $data $content}
+                                    {if $content[id]==$id}
                                         <li class="introduce">
                                             <div class="date">
-                                                <h1>{date('j',$next_content[updatetime])}</h1>
-                                                <p>{date('M Y',$next_content[updatetime])}</p>
+                                                <h1>{date('j',$content[inputtime])}</h1>
+                                                <p>{date('M Y',$content[inputtime])}</p>
                                             </div>
                                             <div class="introduce-infor">
-                                                <h1>{$next_content[title]}</h1>
-                                                <span>发布者:{$next_content[username]}</span>
-                                                <p>{$next_content[description]}
+                                                <h1>{$content[title]}</h1>
+                                                <span>发布者:中住地产</span>
+                                                <p>{$content[content]}
                                                 </p>
                                             </div>
                                         </li>
-                                    </a>
+                                    <!--下一篇文章-->
+                                    {php $next_content=next($data)}
+                                        {if !empty($next_content)}
+                                        <a href="{$next_content[url]}">
+                                            <li class="introduce">
+                                                <div class="date">
+                                                    <h1>{date('j',$next_content[inputtime])}</h1>
+                                                    <p>{date('M Y',$next_content[inputtime])}</p>
+                                                </div>
+                                                <div class="introduce-infor">
+                                                    <h1>{$next_content[title]}</h1>
+                                                    <span>发布者:中柱地产</span>
+                                                    <p>{$next_content[description]}
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </a>
+                                        {/if}
                                     {/if}
-                                {/if}
-                            {/loop}
-                        {/pc}
-                    </ul>
+                                {/loop}
+                            {/pc}
+                        </ul>
+                    </div>
+                    {template "content","right_img"}
                 </div>
-                {template "content","right_img"}
-            </div>
 
+            </div>
         </div>
     </div>
 </div>

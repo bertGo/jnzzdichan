@@ -15,7 +15,7 @@
 	border-bottom: 2px solid #ABABAB;
 }
 .crumbs .zhu{
-	background: url(../image/icon2.png) no-repeat 0 32px;
+	background: url(../images/icon2.png) no-repeat 0 32px;
 	padding-left: 23px;
 }
 .crumbs a {
@@ -29,7 +29,7 @@
 }
 
 .crumbs a.on {
-	background: url(../image/icon1.png) no-repeat 0 36px;
+	background: url(../images/icon1.png) no-repeat 0 36px;
 }
 
 .infor {
@@ -46,7 +46,7 @@
 
 .infor-nav {
 	position: absolute;
-	right: 313px;
+	right: 0;
 }
 
 .infor .tab-nav {
@@ -152,7 +152,7 @@
 	margin: 6px 0;
 	height: 64px;
 	font-size: 18px;
-	background-color: #CBCBCB;
+	background-color: #f6fafc;
 	color: #26B7BC;
 	border: none;
 }
@@ -177,7 +177,7 @@
 	float: left;
 	padding: 30px 0;
 	width: 100%;
-	border-bottom: 2px solid #a2a4b4;
+	border-bottom: 2px solid #f3f7fa;
 }
 
 .news-list li:last-child {
@@ -190,7 +190,7 @@
 	height: 78px;
 	padding: 12px;
 	color: #26B7BC;
-	background-color: #cbcbcb;
+	background-color: #f6fafc;
 }
 
 .introduce .date h1 {
@@ -238,6 +238,11 @@
 	width: 340px;
 	padding-left: 24px;
 }
+.main .right img{
+	display: block;
+	margin-bottom: 10px;
+}
+
 
 #culture {
 	width: 100%;
@@ -296,7 +301,7 @@
 	float: left;
 	width: 100%;
 	height: 666px;
-	background: url(../image/chengzhang.png);
+	background: url(../images/chengzhang.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	position: relative;

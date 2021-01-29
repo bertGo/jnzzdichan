@@ -11,7 +11,7 @@ return array (
     'keywords' => '',
     'description' => '中住蓝，不一样的蓝中住蓝，不一样的蓝中住蓝，不一样的蓝中住蓝，不一样的蓝 中住蓝，不一样的蓝中住蓝，不一样的蓝中住蓝，不一样的蓝中   ',
     'posids' => '0',
-    'url' => 'http://www.zhongzhudichan.com/index.php?m=content&c=index&a=show&catid=32&id=7',
+    'url' => 'http://localhost:22024/index.php?m=content&c=index&a=show&catid=32&id=7',
     'listorder' => '0',
     'status' => '99',
     'sysadd' => '1',

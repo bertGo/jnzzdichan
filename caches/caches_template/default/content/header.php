@@ -16,13 +16,6 @@
 	<script type="text/javascript" src="<?php echo JS_PATH;?>search_common.js"></script>
 </head>
 <style>
-	.logo {
-		position: absolute;
-		top: 28px;
-		left: 313px;
-		width: 115px;
-		height: 34px;
-	}
 	a {
 		text-decoration:none!important;
 	}
@@ -32,7 +25,7 @@
 	<div class="header-wrap">
 		<img src="<?php echo IMG_PATH;?>log.png" class="logo"/>
 		<div class="menu">
-			<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b43f1459ac702900c8d44c91a5e796dd&action=category&catid=0&num=25&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'0','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'25',));}?>
+			<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=b43f1459ac702900c8d44c91a5e796dd&action=category&catid=0&num=25&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'0','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'25',));}?>
 			<ul class="nav">
 				<li>
 					<a href="<?php echo siteurl($siteid);?>" class="index-cat">首页</a>
@@ -47,13 +40,21 @@
 						<a href="http://www.jnhouse.com/czqz/" target="_blank" >租房</a>
 						<a href="http://www.jnhouse.com/community/" target="_blank" >找小区</a>
 					</div>
+					<?php } elseif ($r[catid]==6) { ?>
+					<?php $zz_url=WEB_PATH.'index.php?m=content&c=index&a=lists&catid=6'?>
+					<a href="<?php echo $zz_url;?>">关于中住</a>
+					<div class="box">
+						<a href="<?php echo $zz_url;?>&index=0">中住介绍</a>
+						<a href="<?php echo $zz_url;?>&index=1">企业文化</a>
+						<a href="<?php echo $zz_url;?>&index=2">成长历程</a>
+					</div>
 					<?php } else { ?>
 					<a href="<?php echo $r['url'];?>"  data-cat="<?php echo $r['catid'];?>" ><?php echo $r['catname'];?></a>
 					<div class="box">
-						<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=46823c6d4d8f3b0d8a26afbb44ca0bad&action=category&catid=%24r%5Bcatid%5D&num=25&siteid=%24siteid&order=listorder+ASC&return=item\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$item = $content_tag->category(array('catid'=>$r[catid],'siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'25',));}?>
-						<?php $n=1;if(is_array($item)) foreach($item AS $val) { ?>
-						<a href="<?php echo $val['url'];?>"><?php echo $val['catname'];?></a>
-						<?php $n++;}unset($n); ?>
+						<?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=46823c6d4d8f3b0d8a26afbb44ca0bad&action=category&catid=%24r%5Bcatid%5D&num=25&siteid=%24siteid&order=listorder+ASC&return=item\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$item = $content_tag->category(array('catid'=>$r[catid],'siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'25',));}?>
+							<?php $n=1;if(is_array($item)) foreach($item AS $val) { ?>
+							<a href="<?php echo $val['url'];?>"><?php echo $val['catname'];?></a>
+							<?php $n++;}unset($n); ?>
 						<?php if(defined('IN_ADMIN') && !defined('HTML')) {echo '</div>';}?>
 					</div>
 					<?php } ?>

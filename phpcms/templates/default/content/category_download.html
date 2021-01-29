@@ -17,7 +17,7 @@
     <img src="{IMG_PATH}about-banner.png"/>
 </div>
 <div class="infor">
-    <!-- <div class="infor-wrap"> -->
+     <div class="infor-wrap">
     <!-- 如果修改了新闻中心，将catid改成新闻中心对应的id todo-->
     {pc:content action="category" catid="31" num="25" }
     {php $catnum=0}
@@ -62,7 +62,7 @@
                     <div class="news-top">
                         <div class="news-top-l">
                             <a href="{$content[url]}">
-                                <div class="date">{date('M m,Y',$content[updatetime])}</div>
+                                <div class="date">{date('M m,Y',$content[inputtime])}</div>
                                 <h1>{$content[title]}</h1>
                                 <p>{$content[description]}
                                 </p>
@@ -80,8 +80,8 @@
                         <li class="introduce">
                             <a href="{$content[url]}">
                                 <div class="date">
-                                    <h1>{date('j',$content[updatetime])}</h1>
-                                    <p>{date('M Y',$content[updatetime])}</p>
+                                    <h1>{date('j',$content[inputtime])}</h1>
+                                    <p>{date('M Y',$content[inputtime])}</p>
                                 </div>
                                 <div class="introduce-infor">
                                     <h1>{$content[title]}</h1>
@@ -94,7 +94,7 @@
                     {$j++}
                     {/loop}
                     </ul>
-                    <div id="page" class="page_div">{$pages}</div>
+                    <div id="page" class="page_div" {if empty($pages)} style="visibility: hidden;" {/if}>{$pages}</div>
                 </div>
                 {/pc}
                 {/if}
@@ -109,7 +109,7 @@
 
 
 
-    <!-- </div> -->
+     </div>
 </div>
 
 </body>

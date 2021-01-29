@@ -41,8 +41,12 @@
 
 .infor-nav {
 	position: absolute;
-	right: 313px;
+	right: 0px;
 }
+.infor .tab-nav .hover {
+	border-bottom: 2px solid #c7000b;
+}
+
 
 .infor .tab-nav {
 	overflow: hidden;
@@ -52,7 +56,7 @@
 	font-weight: bold;
 	cursor: pointer;
 	float: left;
-	line-height: 77px;
+	line-height: 75px;
 	display: inline-block;
 	margin: 0px 25px 0 0;
 	color: #505960;
@@ -81,7 +85,7 @@
 	background: #c7000b;
 	position: relative;
 	left: 0px;
-	margin-top: -2px;
+	margin-top: 0;
 }
 
 .none {
@@ -104,7 +108,7 @@
 	margin-top: 30px;
 	padding-top: 63px;
 	color: #746969;
-	background: url(../image/SINCE2015.png) no-repeat 0 0;
+	background: url(../images/SINCE2015.png) no-repeat 0 0;
 }
 
 .introduce h1 {
@@ -135,6 +139,10 @@
 	width: 340px;
 	padding-left: 24px;
 }
+.main .right img{
+	display: block;
+	margin-bottom: 10px;
+}
 
 #culture {
 	width: 100%;
@@ -153,7 +161,10 @@
 	height: 50px;
 	cursor: pointer;
 	line-height: 50px;
-	width: 150px;
+	width: 100px;
+	text-align: right;
+	padding-right: 50px;
+
 }
 
 #culture-nav li.current {
@@ -193,6 +204,12 @@
 	width: 100%;
 	margin-top: 30px;
 }
+.grow-up-top{
+	width: 1295px;
+	margin: 0 192px;
+	margin-top: 20px;
+}
+
 .grow-bottom-wrap{
 	width: 1290px;
 	margin: 0 auto;
