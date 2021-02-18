@@ -309,14 +309,19 @@
                         </ul>
                         <div id="culture-content">
                             <div style="display:block;">
-                                <img src="{IMG_PATH}shiming.png" />
+                                {pc:get sql=" SELECT * FROM v9_news AS new INNER JOIN v9_news_data AS data ON data.id = new.id WHERE new.id = 3 "}
+                                {$data[0]['content']}
+                                {/pc}
                             </div>
                             <div>
-                                <img src="{IMG_PATH}jiazhi.png" />
+                                {pc:get sql=" SELECT * FROM v9_news AS new INNER JOIN v9_news_data AS data ON data.id = new.id WHERE new.id = 4 "}
+                                {$data[0]['content']}
+                                {/pc}
                             </div>
                             <div>
-                                <p>成为中国最卓越的不动产综合服务提供商</p>
-                                <img src="{IMG_PATH}culture1.png" />
+                                {pc:get sql=" SELECT * FROM v9_news AS new INNER JOIN v9_news_data AS data ON data.id = new.id WHERE new.id = 5 "}
+                                {$data[0]['content']}
+                                {/pc}
                             </div>
                         </div>
                         <div style="clear: both;"></div>
