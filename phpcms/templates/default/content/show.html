@@ -55,7 +55,7 @@
                                     <!--下一篇文章-->
                                     {php $next_content=next($data)}
                                         {if !empty($next_content)}
-                                        <a href="{$next_content[catid]}_{$next_content[id]}.html">
+                                        <a href="c{$next_content[catid]}_i{$next_content[id]}_p{$page}.html">
                                             <li class="introduce">
                                                 <div class="date">
                                                     <h1>{date('j',$next_content[inputtime])}</h1>
