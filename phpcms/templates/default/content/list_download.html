@@ -1,4 +1,5 @@
 {template "content","header"}
+<!--活动新闻and 员工专访列表-->
 <link href="{CSS_PATH}download.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{CSS_PATH}style.css" />
 <link rel="stylesheet" href="{CSS_PATH}news.css" />
@@ -39,7 +40,7 @@
                     {if $j==0}
                     <div class="news-top">
                         <div class="news-top-l">
-                            <a href="{$content[url]}">
+                            <a href="c{$content[catid]}_i{$content[id]}_p{$page}.html">
                                 <div class="date">{date('M m,Y',$content[updatetime])}</div>
                                 <h1>{$content[title]}</h1>
                                 <p>{$content[description]}
@@ -48,7 +49,8 @@
                             </a>
                         </div>
                         <div class="news-top-r">
-                            <a href="{$content[url]}"><img src="{$content[thumb]}" /></a>
+                            <a href="c{$content[catid]}_i{$content[id]}_p{$page}.html">
+                                <img src="{$content[thumb]}" /></a>
                         </div>
                     </div>
                     {else}
@@ -56,7 +58,7 @@
                     <ul class="news-list">
                         {/if}
                         <li class="introduce">
-                            <a href="{$content[url]}">
+                            <a href="c{$content[catid]}_i{$content[id]}_p{$page}.html">
                                 <div class="date">
                                     <h1>{date('j',$content[updatetime])}</h1>
                                     <p>{date('M Y',$content[updatetime])}</p>
