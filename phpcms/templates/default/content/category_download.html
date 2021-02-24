@@ -1,5 +1,5 @@
 {template "content","header"}
-
+<!--这是新闻的列表页-->
 <link rel="stylesheet" href="{CSS_PATH}style.css" />
 <link rel="stylesheet" href="{CSS_PATH}news.css" />
 <body>
@@ -35,9 +35,10 @@
     {/pc}
     <div class="infor-nav">
         <ul class="tab-nav tab1">
-            {php $i=0}
             {loop subcat($catid) $r}
-            <li {if $i==0} class="hover" {/if} ><a href="{$r[url]}" title="{$r[catname]}">{$r[catname]}</a></li>
+            <li
+                    {if $catid==$r[catid]} class="hover" {/if}
+                    {if $catid==31&&$r[catid]==32 } class="hover"  {/if} ><a href="{$r[url]}" title="{$r[catname]}">{$r[catname]}</a></li>
             {$i++}
             {/loop}
         </ul>
