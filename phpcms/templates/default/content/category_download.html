@@ -62,7 +62,7 @@
                     {if $j==0}
                     <div class="news-top">
                         <div class="news-top-l">
-                            <a href="c{$next_content[catid]}_i{$next_content[id]}_p{$page}.html">
+                            <a href="c{content[catid]}_i{$content[id]}_p{$page}.html">
                                 <div class="date">{date('M m,Y',$content[inputtime])}</div>
                                 <h1>{$content[title]}</h1>
                                 <p>{$content[description]}
@@ -71,7 +71,7 @@
                             </a>
                         </div>
                         <div class="news-top-r">
-                            <a href="c{$next_content[catid]}_i{$next_content[id]}_p{$page}.html">
+                            <a href="c{$content[catid]}_i{$content[id]}_p{$page}.html">
                                 <img src="{$content[thumb]}" /></a>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                     <ul class="news-list">
                         {/if}
                         <li class="introduce">
-                            <a href="c{$next_content[catid]}_i{$next_content[id]}_p{$page}.html">
+                            <a href="c{$content[catid]}_i{$content[id]}_p{$page}.html">
                                 <div class="date">
                                     <h1>{date('j',$content[inputtime])}</h1>
                                     <p>{date('M Y',$content[inputtime])}</p>
