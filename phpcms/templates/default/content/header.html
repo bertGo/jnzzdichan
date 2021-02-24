@@ -41,13 +41,18 @@
 						<a href="http://www.jnhouse.com/community/" target="_blank" >找小区</a>
 					</div>
 					{elseif $r[catid]==6}
-					{php $zz_url=WEB_PATH.'index.php?m=content&c=index&a=lists&catid=6'}
-					<a href="{$zz_url}">关于中住</a>
+					{pc:content action="category" catid="$r[catid]" num="25" siteid="$siteid" order="listorder ASC" return="item"}
+						{loop $item $val}
+						{if $val[catid]==15}
+						<a href="{$val[url]}">关于中住</a>
+						{/if}
+						{/loop}
 					<div class="box">
-						<a href="{$zz_url}&index=0">中住介绍</a>
-						<a href="{$zz_url}&index=1">企业文化</a>
-						<a href="{$zz_url}&index=2">成长历程</a>
+						{loop $item $val}
+						<a href="{$val[url]}">{$val[catname]}</a>
+						{/loop}
 					</div>
+					{/pc}
 					{else}
 					<a href="{$r[url]}"  data-cat="{$r[catid]}" >{$r[catname]}</a>
 					<div class="box">
