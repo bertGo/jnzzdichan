@@ -28,13 +28,11 @@
         </ul>
         <div class="xian" style="left: 0;"></div>
     </div>
-
+<!--         {pc:get sql=" SELECT * FROM v9_news AS new INNER JOIN v9_news_data AS data ON data.id = new.id WHERE new.catid = $catid  " start=0 num=3 }-->
     <div class="tab-box" style="display: block;">
         <div class="main">
             <div class="main-wrap">
-                {pc:content  action="lists" catid="$catid"  num="11" page="$page"}
-                <!--计页 -->
-                {php $count_page=ceil(count($data)/15)}
+                {pc:content  action="lists" catid="$catid"  num="10" page="$_GET[page]"}
                 <div class="left">
                     {php $j=0}
                     {loop $data $content}
