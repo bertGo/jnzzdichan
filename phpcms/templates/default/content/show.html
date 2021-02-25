@@ -36,8 +36,8 @@
                 <div class="main-wrap">
                     <div class="left">
                         <ul class="news-con">
-                            {php $sql="id >= $id and catid = $catid"}
-                            {pc:content  action="lists" catid="$catid" where="$sql" num="100" page="$page"  moreinfo="1" }
+                            {php $sql="id <= $id and catid = $catid"}
+                            {pc:content  action="lists" catid="$catid" where="$sql" order="id desc" num="100" page="$page"  moreinfo="1" }
                                 {loop $data $content}
                                     {if $content[id]==$id}
                                         <li class="introduce">

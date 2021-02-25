@@ -33,7 +33,7 @@
     <div class="tab-box" style="display: block;">
         <div class="main">
             <div class="main-wrap">
-                {pc:content  action="lists" catid="$catid"  num="10" page="$_GET[page]"}
+                {pc:content  action="lists" catid="$catid" order="id desc"  num="10" page="$_GET[page]"}
                 <div class="left">
                     {php $j=0}
                     {loop $data $content}

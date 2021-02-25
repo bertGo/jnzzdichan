@@ -55,7 +55,7 @@
                 {loop subcat($catid) $r}
                 {php $count_page=ceil(count($r)/10)}
                 {if $i==0}
-                {pc:content  action="lists" catid="$r[catid]"  num="10" page="$page"}
+                {pc:content  action="lists" catid="$r[catid]" order="id desc" num="10" page="$page"}
                 <div class="left">
                     {php $j=0}
                     {loop $data $content}
