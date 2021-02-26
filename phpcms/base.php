@@ -58,7 +58,19 @@ if(pc_base::load_config('system','gzip') && function_exists('ob_gzhandler')) {
 } else {
 	ob_start();
 }
+$self=$_SERVER['REQUEST_URI'];
 
+$action=explode('/',$self);
+
+/*
+ * 前台控制器
+ */
+$a_arr=['lists','show','edit'];
+//避开后台路由程序
+if(is_array($action)&&$self!='/'&&$_GET['m']!='admin'&&$_GET['menuid']==''&&!in_array($_GET['a'],$a_arr)&&$_GET['c']!='create_html')
+{
+    new_route_rule($action);
+}
 class pc_base {
 	
 	/**

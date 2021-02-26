@@ -44,21 +44,21 @@
 					{pc:content action="category" catid="$r[catid]" num="25" siteid="$siteid" order="listorder ASC" return="item"}
 						{loop $item $val}
 						{if $val[catid]==15}
-						<a href="{$val[url]}">关于中住</a>
+						<a href="/{$val[catdir]}">关于中住</a>
 						{/if}
 						{/loop}
 					<div class="box">
 						{loop $item $val}
-						<a href="{$val[url]}">{$val[catname]}</a>
+						<a href="/{$val[catdir]}">{$val[catname]}</a>
 						{/loop}
 					</div>
 					{/pc}
 					{else}
-					<a href="{$r[url]}"  data-cat="{$r[catid]}" >{$r[catname]}</a>
+					<a href="/{$r[catdir]}"  data-cat="{$r[catid]}" >{$r[catname]}</a>
 					<div class="box">
 						{pc:content action="category" catid="$r[catid]" num="25" siteid="$siteid" order="listorder ASC" return="item"}
 							{loop $item $val}
-							<a href="{$val[url]}">{$val[catname]}</a>
+							<a href="/{$val[catdir]}">{$val[catname]}</a>
 							{/loop}
 						{/pc}
 					</div>

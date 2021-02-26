@@ -1,5 +1,5 @@
 {template "content","header"}
-<!--活动新闻and 员工专访列表-->
+<!--活动新闻and 员工专访 and 中住新闻列表-->
 <link href="{CSS_PATH}download.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{CSS_PATH}style.css" />
 <link rel="stylesheet" href="{CSS_PATH}news.css" />
@@ -24,13 +24,14 @@
     <div class="infor-nav">
         <ul class="tab-nav tab1">
             {loop subcat(31) $r}
-            <li {if $catid==$r[catid]} class="hover" {/if} ><a href="{$r[url]}" title="{$r[catname]}">{$r[catname]}</a></li>
+            <li {if $catid==$r[catid]} class="hover" {/if} ><a href="/{$r[catdir]}" title="{$r[catname]}">{$r[catname]}</a></li>
             {/loop}
         </ul>
         <div class="xian" style="left: 0;"></div>
     </div>
 <!--         {pc:get sql=" SELECT * FROM v9_news AS new INNER JOIN v9_news_data AS data ON data.id = new.id WHERE new.catid = $catid  " start=0 num=3 }-->
     <div class="tab-box" style="display: block;">
+        {php $action=search_dir()}
         <div class="main">
             <div class="main-wrap">
                 {pc:content  action="lists" catid="$catid" order="id desc"  num="10" page="$_GET[page]"}
@@ -40,7 +41,7 @@
                     {if $j==0}
                     <div class="news-top">
                         <div class="news-top-l">
-                            <a href="c{$content[catid]}_i{$content[id]}_p{$page}.html">
+                            <a href="/{$action}/{$content[id]}">
                                 <div class="date">{date('M m,Y',$content[updatetime])}</div>
                                 <h1>{$content[title]}</h1>
                                 <p>{$content[description]}
@@ -49,7 +50,7 @@
                             </a>
                         </div>
                         <div class="news-top-r">
-                            <a href="c{$content[catid]}_i{$content[id]}_p{$page}.html">
+                            <a href="/{$action}/{$content[id]}">
                                 <img src="{$content[thumb]}" /></a>
                         </div>
                     </div>
@@ -58,7 +59,7 @@
                     <ul class="news-list">
                         {/if}
                         <li class="introduce">
-                            <a href="c{$content[catid]}_i{$content[id]}_p{$page}.html">
+                            <a href="/{$action}/{$content[id]}">
                                 <div class="date">
                                     <h1>{date('j',$content[updatetime])}</h1>
                                     <p>{date('M Y',$content[updatetime])}</p>

@@ -557,7 +557,7 @@
         1 企业文化
         2 成长历程
          */
-        let index=getUrlParam('index');
+        let index="{$_GET['index']}";
         $ul=$(".tab-box");
         $ul.css('display', 'none'); //因为默认是第一个显示  所以先隐藏
         $ul.eq(index).css('display', 'block'); //当前内容再出现
@@ -620,10 +620,15 @@
     //关于中住的路径跳转
     //todo
     $(function () {
-        let goto_url='/index.php?m=content&c=index&a=lists&catid=6';
+        let goto_url= {get_about_arr(true)};
         $(".zz_check").click(function () {
             let index=$(this).attr('data-index');
-            window.location.href=goto_url+"&index="+index;
+            for (let key in goto_url) {
+                if (goto_url[key]==index)
+                {
+                    window.location.href='/'+key;
+                }
+            }
         })
     })
 </script>

@@ -62,7 +62,7 @@
             <ul class="tab-nav tab1">
                 {pc:content action="category" catid="12" num="25" siteid="$siteid" order="listorder ASC" return="item"}
                 {loop $item $val}
-                <li {if $val[catid] ==$catid } class="hover" {/if} ><a href="{$val[url]}">{$val[catname]}</a></li>
+                <li {if $val[catid] ==$catid } class="hover" {/if} ><a href="/{$val[catdir]}">{$val[catname]}</a></li>
                 {/loop}
                 {/pc}
             </ul>
@@ -79,7 +79,7 @@
         </div>
     </div>
 </div>
-<a href="{WEB_PATH}index.php?m=content&c=index&a=lists&catid=24" style="width: 960px ; height:40px;margin: 10px auto;margin-left: 8rem;">
+<a href="{WEB_PATH}zp" style="width: 960px ; height:40px;margin: 10px auto;margin-left: 8rem;">
     <img src="{IMG_PATH}back.png" alt="" style="margin: 0 auto;height: 35px;">
 </a>
 
@@ -157,6 +157,7 @@
 
 {elseif $catid==24||$catid==12}
 {template "content","header"}
+{php $action=search_dir()}
 <head>
     <meta charset="utf-8">
     <title></title>
@@ -238,12 +239,12 @@
                 {/loop}
                 {if $red==1}
                     {loop $item $val}
-                    <li {if $val[catid] ==$catid } class="hover" {/if} ><a href="{$val[url]}">{$val[catname]}</a></li>
+                    <li {if $val[catid] ==$catid } class="hover" {/if} ><a href="{$val[catdir]}">{$val[catname]}</a></li>
                     {/loop}
                 {else}
                 {php $i = 0}
                 {loop $item $val}
-                <li {if $i==0 } class="hover" {/if} ><a href="{$val[url]}">{$val[catname]}</a></li>
+                <li {if $i==0 } class="hover" {/if} ><a href="{$val[catdir]}">{$val[catname]}</a></li>
                 {$i++}
                 {/loop}
                 {/if}
@@ -251,7 +252,6 @@
             </ul>
             <div class="xian" style="left: 0;"></div>
         </div>
-
         <div class="tab-box" style="display: block;">
             <div class="main">
                 <div class="main-wrap">
@@ -268,16 +268,16 @@
                     </div>
                     <ul class="join-r">
                         <li data-img="join2_">
-                            <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']?>&join=3"><img src="{IMG_PATH}join2.png" /></a>
+                            <a href="/{$action}/3"><img src="{IMG_PATH}join2.png" /></a>
                         </li>
                         <li data-img="join1_">
-                            <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']?>&join=4"><img src="{IMG_PATH}join1.png" /></a>
+                            <a href="/{$action}/4"><img src="{IMG_PATH}join1.png" /></a>
                         </li>
                         <li data-img="join3_">
-                            <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']?>&join=1"><img src="{IMG_PATH}join3.png" /></a>
+                            <a href="/{$action}/1"><img src="{IMG_PATH}join3.png" /></a>
                         </li>
                         <li data-img="join4_">
-                            <a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']?>&join=2"><img src="{IMG_PATH}join4.png" /></a>
+                            <a href="/{$action}/2"><img src="{IMG_PATH}join4.png" /></a>
                         </li>
                     </ul>
                 </div>
@@ -360,8 +360,11 @@
 
 <script>
 $(".join-r li").click(function () {
+
     let img_name=$(this).attr('data-img')+'detail.png';
     $(".main-wrap").html("<img src={IMG_PATH}"+img_name+" style='width:100%'>");
+    // var newwindow=window.open();
+    // newwindow.document.write("<img src={IMG_PATH}"+img_name+" style='width:100%'>");
     $(".banner").remove();
 })
 </script>
@@ -448,7 +451,7 @@ $(".join-r li").click(function () {
             <ul class="tab-nav tab1">
                 {pc:content action="category" catid="12" num="25"  order="listorder ASC" return="item"}
                 {loop $item $val}
-                <li {if $val[catid] ==$catid } class="hover" {/if}><a href="{$val[url]}">{$val[catname]}</a></li>
+                <li {if $val[catid] ==$catid } class="hover" {/if}><a href="{$val[catdir]}">{$val[catname]}</a></li>
                 {/loop}
                 {/pc}
             </ul>
