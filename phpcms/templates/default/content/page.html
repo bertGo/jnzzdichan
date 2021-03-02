@@ -239,12 +239,12 @@
                 {/loop}
                 {if $red==1}
                     {loop $item $val}
-                    <li {if $val[catid] ==$catid } class="hover" {/if} ><a href="{$val[catdir]}">{$val[catname]}</a></li>
+                    <li {if $val[catid] ==$catid } class="hover" {/if} ><a href="/{$val[catdir]}">{$val[catname]}</a></li>
                     {/loop}
                 {else}
                 {php $i = 0}
                 {loop $item $val}
-                <li {if $i==0 } class="hover" {/if} ><a href="{$val[catdir]}">{$val[catname]}</a></li>
+                <li {if $i==0 } class="hover" {/if} ><a href="/{$val[catdir]}">{$val[catname]}</a></li>
                 {$i++}
                 {/loop}
                 {/if}
@@ -451,7 +451,7 @@ $(".join-r li").click(function () {
             <ul class="tab-nav tab1">
                 {pc:content action="category" catid="12" num="25"  order="listorder ASC" return="item"}
                 {loop $item $val}
-                <li {if $val[catid] ==$catid } class="hover" {/if}><a href="{$val[catdir]}">{$val[catname]}</a></li>
+                <li {if $val[catid] ==$catid } class="hover" {/if}><a href="/{$val[catdir]}">{$val[catname]}</a></li>
                 {/loop}
                 {/pc}
             </ul>
