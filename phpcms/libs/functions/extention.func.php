@@ -65,6 +65,8 @@
              $_GET['catid'] = 6;
          }
         pc_base::creat_app();
+     }else{
+         page404();
      }
  }
 

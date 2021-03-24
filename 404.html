@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/statics/css/style.css" />
+    <link rel="stylesheet" href="/statics/css/index.css" />
+    <link rel="stylesheet" href="/statics/css/404.css" />
+</head>
+
+<body>
+<!-- 导航 -->
+<div class="header">
+    <div class="header-wrap">
+        <a class="logo"></a>
+        <div class="menu">
+            <ul class="nav">
+                <li>
+                    <a href="/">首页</a>
+                </li>
+                <li>
+                    <a href="/jj">关于中住</a>
+                    <div class="box">
+                        <a href="/jj">中住介绍</a>
+                        <a href="/wh">企业文化</a>
+                        <a href="/lc">成长历程</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="/zc ">新闻中心</a>
+                    <div class="box">
+                        <a href="/xw">中住新闻</a>
+                        <a href="/zf">员工专访</a>
+                        <a href="/hd">活动新闻</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="www.jnhouse.com">公司业务</a>
+                    <div class="box">
+                        <a href="www.jnhouse.com/lpzs">新房</a>
+                        <a href="www.jnhouse.com/esf">二手房</a>
+                        <a href="www.jnhouse.com/czqz">租房</a>
+                        <a href="www.jnhouse.com/community">找小区</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="/jr">加入我们</a>
+                    <div class="box">
+                        <a href="/zp">招贤纳士</a>
+                        <a href="/lx">联系我们</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="cont">
+    <div class="cont-wrap">
+        <img src="/statics/images/404.jpg" style="width: 100%;" />
+        <div class="home-button">
+            <a href="/" ><button style="cursor: pointer">前往首页</button></a>
+        </div>
+        <div class="recommend-wrap">
+            <h2 class="titleinfo">最新新闻<!-- <a href="#" class="more-link"> <img src="img/shx.png" /> 换一批</a> --></h2>
+
+            <ul class="news-ul">
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+</body>
+<script src="/statics/js/jquery-1.min.js"></script>
+<script src="/statics/js/nav.js"></script>
+<script >
+    $(function () {
+        $.ajax('/404.php',{
+            data:{
+              c:'create_html'
+            },
+            success:function (res) {
+                let data = JSON.parse(res);
+                let dir = data['dir_arr'];
+                let lists = data['data'];
+                $.each(lists,function (index,item) {
+                    let li = '<li class="news-li">';
+                    li +='<a href="/'+dir[item.catid]+'/'+item.id+'">';
+                    li +='<img class="news-li-img" src="'+item.thumb+'"  />'
+                    li +='<div class="news-li-con">';
+                    li +='<h1>'+item.title+'</h1>';
+                    li +='<p>'+item.description+'</p>';
+                    li +='</div></a></li>';
+                    $(".news-ul").append(li);
+                })
+            }
+        })
+    });
+
+</script>
+
+
+
+</html>

@@ -1797,5 +1797,12 @@ function get_vid($contentid = 0, $catid = 0, $isspecial = 0) {
 		return $minite.":".$secend;
 	}
 
- } 
+ }
+function page404(){
+
+    header($_SERVER['SERVER_PROTOCOL']." 404 Not Found", true, 404 );
+    header("Location: /404.html");
+    exit();
+
+}
 ?>

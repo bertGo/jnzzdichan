@@ -57,7 +57,21 @@ class index {
 		
 		$tablename = $this->db->table_name = $this->db->db_tablepre.$MODEL[$modelid]['tablename'];
 		$r = $this->db->get_one(array('id'=>$id));
-		if(!$r || $r['status'] != 99) showmessage(L('info_does_not_exists'),'blank');
+        if(!$catid || !$id)
+        {
+            page404();
+        }
+
+        if(!isset($CATEGORYS[$catid]) || $CATEGORYS[$catid]['type']!=0)
+        {
+            page404();
+        }
+
+        if(!$r || $r['status'] != 99)
+        {
+            page404();
+        }
+        if(!$r || $r['status'] != 99) showmessage(L('info_does_not_exists'),'blank');
 		
 		$this->db->table_name = $tablename.'_data';
 		$r2 = $this->db->get_one(array('id'=>$id));
@@ -220,6 +234,10 @@ class index {
 		$siteids = getcache('category_content','commons');
 		$siteid = $siteids[$catid];
 		$CATEGORYS = getcache('category_content_'.$siteid,'commons');
+        if(!isset($CATEGORYS[$catid]))
+        {
+            page404();
+        }
 		if(!isset($CATEGORYS[$catid])) showmessage(L('category_not_exists'),'blank');
 		$CAT = $CATEGORYS[$catid];
 		$siteid = $GLOBALS['siteid'] = $CAT['siteid'];
