@@ -58,7 +58,7 @@
     <div class="ex_top-wrap">
             <div class="introduce">
                 {pc:get sql="SELECT new.url ,new.description, new.title FROM v9_news AS new INNER JOIN v9_news_data AS data ON data.id = new.id WHERE new.catid = 32 ORDER BY new.listorder " return="data"}
-                    <a href="{$data[0][url]}">
+                    <a href="/zx/7">
                             <h1>{$data[0]['title']}</h1>
                             <p>{$data[0][description]}</p>
                     </a>
